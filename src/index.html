@@ -53,7 +53,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transform: rotate(var(--rotate));
@@ -85,6 +84,34 @@
         .description.fade-out {
             opacity: 0;
         }
+
+        .custom-gradient-nykaa {
+            background: linear-gradient(to bottom left, white 0%, #e11d96 29%, #e852a5 50%, white 110%);
+        }
+
+        .custom-gradient-pvr {
+            background: linear-gradient(to bottom left, white 0%, gold 29%, rgb(234, 210, 76) 52%, white 110%);
+        }
+
+        .custom-gradient-kfc {
+            background: linear-gradient(to bottom left, white 0%, rgb(255, 0, 0) 29%, rgb(255, 46, 46) 52%, white 110%)
+        }
+
+        .custom-gradient-prime {
+            background: linear-gradient(to bottom left, white 0%, #a143ff 29%, #bd7bff 52%, white 110%);
+        }
+
+        .custom-gradient-westside {
+            background: linear-gradient(to bottom left, white 0%, #509fff 29%, #87bdff 52%, white 110%);
+        }
+
+        .glowy-shadow {
+            box-shadow: 0px 0px 30px 15px rgba(255,255,255,0.25);
+        }
+
+        .customBlue {
+            color: #60a5fa;
+        }
     </style>
 </head>
 <body class="flex flex-col items-center justify-center gap-12">
@@ -103,18 +130,59 @@
     </div>
     <div class="carousel-container h-[512px] w-[75%] mt-[50px]">
         <div class="carousel">
-            <div class="carousel-item" data-description="KFC">KFC</div>
-            <div class="carousel-item" data-description="Amazon Prime">Amazon Prime</div>
-            <div class="carousel-item active" data-description="Nykaa">Nykaa</div>
-            <div class="carousel-item" data-description="Westside">Westside</div>
-            <div class="carousel-item" data-description="PVR">PVR</div>
+            <div class="carousel-item shadow-lg flex flex-col overflow-hidden glowy-shadow" data-description="KFC">
+                <div class="p-4 text-center bg-white h-[30%] w-[100%]">
+                    <img src="./assets/kfc_logo.png" class="h-[120%] mx-auto w-80" alt="KFC Logo" />
+                </div>
+                <div class="h-[70%] custom-gradient-kfc text-white text-[2rem] font-bold font-Montserrat w-[100%]">
+                    <p class="relative top-[78%] left-[25%]">Gift Card</p>
+                </div>
+            </div>
+            <div class="carousel-item shadow-lg flex flex-col overflow-hidden glowy-shadow" data-description="Amazon Prime">
+                <div class="p-4 text-center bg-white h-[30%] w-[100%]">
+                    <img src="./assets/prime_logo.png" class="h-[110%] mx-auto w-[80%]" alt="PRIME Logo" />
+                </div>
+                <div class="h-[70%] custom-gradient-prime text-white text-[2rem] font-bold font-Monteserrat w-[100%]">
+                    <p class="relative top-[78%] left-[25%]">Gift Card</p>
+                </div>
+            </div>
+            <div class="carousel-item active shadow-lg overflow-hidden flex flex-col glowy-shadow" data-description="Nykaa">
+                <div class="pt-4 pb-4 text-center bg-white h-[30%]">
+                    <img src="./assets/nykaa_logo.png" class="h-[100%] mx-auto w-80" alt="NYKAA Logo" />
+                </div>
+                <div class="h-[70%] custom-gradient-nykaa text-white text-[2rem] font-bold font-Montserrat w-[100%]">
+                    <p class="relative top-[78%] left-[25%]">Gift Card</p>
+                </div>
+            </div>
+            <div class="carousel-item shadow-lg overflow-hidden flex flex-col glowy-shadow" data-description="Westside">
+                <div class="p-4 text-center bg-white h-[30%]">
+                    <img src="./assets/westside_logo.png" class="h-[100%] mx-auto w-80" alt="WESTSIDE Logo" />
+                </div>
+                <div class="h-[70%] custom-gradient-westside text-white text-[2rem] font-bold font-Montserrat w-[100%]">
+                    <p class="relative top-[78%] left-[25%]">Gift Card</p>
+                </div>
+            </div>
+            <div class="carousel-item shadow-lg overflow-hidden flex flex-col glowy-shadow" data-description="PVR">
+                <div class="pl-5 pr-4 pb-4 text-center bg-white h-[30%]">
+                    <img src="./assets/pvr_logo.png" class="h-[130%] mx-auto w-80" alt="PVR Logo" />
+                </div>
+                <div class="h-[70%] custom-gradient-pvr text-white text-[2rem] font-bold font-Montserrat w-[100%]">
+                    <p class="relative top-[78%] left-[25%]">Gift Card</p>
+                </div>
+            </div>
         </div>
-        <div class="description-container">
+        <div class="description-container font-Montserrat text-[2rem] font-bold customBlue">
             <p class="description">Gift Card 3</p>
         </div>
     </div>
     <div class="h-[573px] w-[100%]">
-        <img src="./didsomebodysay.png" />
+        <img src="./assets/didsomebodysay.png" />
+    </div>
+    <div class="text-left text-[4rem] mt-[6rem] w-[80%]">
+        <h1 class="font-Montserrat font-bold text-left text-darkblue"> 
+            <span class='text-left text-[4rem] italic'>Trending</span> 
+            <span class='decoration-blue-300 underline text-left text-[4rem]'>Right Now</span>
+        </h1>
     </div>
     <script src="./script.js"></script>
 </body>

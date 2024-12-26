@@ -9,6 +9,9 @@ module.exports = {
         "Poppins": ["Poppins", "serif"],
         "Metrophobic": ["Metrophobic", "serif"],
         "Montserrat": ["Montserrat", 'serif'],
+      },
+      colors: {
+        "darkblue": "#1B4965",
       }
     },
   },

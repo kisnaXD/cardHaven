@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             descriptionElement.textContent = items1[newIndex];
             descriptionElement.classList.remove('fade-out');
-        }, 500);
+        }, 700);
     }
 
     function startInterval() {
