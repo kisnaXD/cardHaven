@@ -9,9 +9,15 @@ module.exports = {
         "Poppins": ["Poppins", "serif"],
         "Metrophobic": ["Metrophobic", "serif"],
         "Montserrat": ["Montserrat", 'serif'],
+        "Outfit": ["Outfit", "serif"],
+        "Niagara": ["'Niagara Solid'", "sans-serif"],
+        "Italiana": ["Italiana", "serif"],
       },
       colors: {
-        "darkblue": "#1B4965",
+        darkblue: "#1B4965",
+        lightblue: "#6FC9FF",
+        neongreen: "#CCFF5D",
+        newdarkblue: "#3693cb",
       }
     },
   },

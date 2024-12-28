@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Metrophobic&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italiana&family=Metrophobic&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/niagara-solid" rel="stylesheet">
+
     <style>        
         .carousel-container {
             width: 81%;
@@ -19,21 +21,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 2px solid #ddd;
-            border-radius: 10px;
+            border-radius: 50px;
             background-color: #000080; 
-        }
-
-        .background-gradient {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(to right, #8e2de2 20%, rgba(0, 0, 128, 0) 40%),
-                linear-gradient(to left, #00f2fe 20%, rgba(0, 0, 128, 0) 40%);
-            z-index: -1; 
         }
 
         .carousel {
@@ -53,7 +42,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 10px;
+            border-radius: 16px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transform: rotate(var(--rotate));
             transition: transform 2s, opacity 2s, z-index 2s; 
@@ -112,13 +101,259 @@
         .customBlue {
             color: #60a5fa;
         }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .view-all-container {
+            transition: width 0.3s ease-in;
+            white-space: nowrap;
+        }
+
+        .view-all-container:hover {
+            width: 15%;
+        }
+
+        .view-all-text {
+            transition: transform 1.2s ease;
+            margin-right: 20px;
+        }
+
+        .view-all-container:hover .view-all-text {
+            transform: translateX(-2px);
+            margin-right: 0px;
+        }
+
+        .view-all-icon {
+            opacity: 0;
+            z-index: -1;
+            margin-left: -30px;
+            transition: opacity 0.3s ease-in-out, margin-left 0.3s ease-in-out;
+        }
+
+        .view-all-container:hover .view-all-icon {
+            z-index: 0;
+            opacity: 1;
+            margin-left: 0px;
+        }
+
+        .black-shadow {
+            box-shadow: -10px 16px rgba(0, 0, 0, 1);
+        }
+
+        .zepto-bg-gradient {
+            background: linear-gradient(to right, #ff71a7 0%, #c800ff 100%);
+        }
+
+        .myntraa-bg-gradient {
+            background: linear-gradient(to left, rgb(255, 191, 231) 0%, rgb(255, 84, 189) 100%);
+        }
+
+        .nykaa-bg-gradient {
+            background: linear-gradient(to left, #fc2779 0%, #ffbbd0 100%);
+        }
+
+        .zomato-bg-gradient {
+            background: linear-gradient(to left, #ff2600 0%, #ff6b51 100%);
+        }
+
+        .starbucks-bg-gradient {
+            background: linear-gradient(to left, #00c096 0%, #00FFA2 100%);
+        }
+
+        .amazon-bg-gradient {
+            background: linear-gradient(to left, #ffc300 0%, #fff171 48%, #ffc300 100%);
+        }
+
+        .dominos-bg-gradient {
+            background: linear-gradient(to left, #5cceff 0%, #000dff 100%);
+        }
+
+        .bewakoof-bg-gradient {
+            background: linear-gradient(to left, gold 0%, rgb(255, 232, 102) 100%);
+        }
+
+        .superdry-bg-gradient {
+            background: linear-gradient(to left, #FF0404 0%, #FF8B8B 100%);
+        }
+
+        .wildcraft-bg-gradient {
+            background: linear-gradient(to left, #FF7B00 0%, #FFBB6D 100%);
+        }
+        
+        .grid-containers {
+            position: relative;
+        }
+        
+        .dc-text {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.6s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .grid-image {
+            position: absolute;
+            z-index: 1;
+            transform: translate(-50%, -48%);
+            transition: all 0.6s ease;
+        }
+
+        #myntraa-image {
+            transform: translate(-50%, -50%);
+            width: 90%;
+        }
+
+        #zomato-image {
+            width: 82%;
+            transform: translate(-50%, -52%)
+        }
+
+        #nykaa-image {
+            width: 85%;
+            transform: translate(-49%, -51%)
+        }
+
+        #zepto-container:hover #zepto-image{
+            z-index: -1;
+            opacity: 0;
+        }
+
+        #zepto-container:hover .discount-text-zepto {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        #myntraa-container:hover #myntraa-image {
+            z-index: -1;
+            opacity: 0;
+        }
+
+        #myntraa-container:hover .discount-text-myntraa {
+            z-index: 1;
+            opacity: 1;
+        }
+
+        #nykaa-container:hover #nykaa-image {
+            z-index: -1;
+            opacity: 0;
+        }
+
+        #nykaa-container:hover .discount-text-nykaa {
+            z-index: 1;
+            opacity: 1;
+        }
+
+        #zomato-container:hover .discount-text-zomato {
+            z-index:1;
+            opacity:1;
+        }
+
+        #zomato-container:hover #zomato-image {
+            z-index: -1;
+            opacity: 0;
+        }
+
+        #starbucks-container:hover .discount-text-starbucks {
+            z-index:1;
+            opacity:1;
+        }
+
+        #starbucks-container:hover #starbucks-image {
+            z-index: -1;
+            opacity: 0;
+        }
+
+        #amazon-container:hover .discount-text-amazon {
+            z-index:1;
+            opacity:1;
+        }
+
+        #amazon-container:hover #amazon-image {
+            z-index: -1;
+            opacity: 0;
+        }
+
+        #dominos-container:hover .discount-text-dominos {
+            z-index:1;
+            opacity:1;
+        }
+
+        #dominos-container:hover #dominos-image {
+            z-index: -1;
+            opacity: 0;
+        }
+
+        #dominos-image {
+            width: 90%;
+        }
+
+        #bewakoof-container:hover .discount-text-bewakoof {
+            z-index:1;
+            opacity:1;
+        }
+
+        #bewakoof-container:hover #bewakoof-image {
+            z-index: -1;
+            opacity: 0;
+        }
+
+        #superdry-container:hover .discount-text-superdry {
+            z-index:1;
+            opacity:1;
+        }
+
+        #superdry-container:hover #superdry-image {
+            z-index: -1;
+            opacity: 0;
+        }
+
+        #wildcraft-container:hover .discount-text-wildcraft {
+            z-index:1;
+            opacity:1;
+        }
+
+        #wildcraft-container:hover #wildcraft-image {
+            z-index: -1;
+            opacity: 0;
+        }
+
+        #bewakoof-image {
+            width: 90%;
+        }
+
+        #wildcraft-image {
+            width: 90%;
+        }
+
+        .customBorder {
+            border: 5px solid;
+            border-top: 0;
+            border-image: linear-gradient(to top, rgba(111,200,255,0.6) 0%, transparent 80%) 0;
+            background: linear-gradient(to bottom, transparent 30%, rgba(111,200,255,0.6) 100%);
+            position: relative;
+        }
+
+        .footer-gradient {
+            background: linear-gradient(to right, #1b4965 0%, #3693cb 100%)
+        }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center gap-12">
+<body class="flex flex-col items-center justify-center gap-8">
     <div class="flex items-center justify-center w-[100%] h-[70px]">
-        <div class="w-[75%] h-[70px] bg-blue-400/[0.6] mt-[50px] rounded-[2rem] flex items-center justify-between hover:bg-yellow-200/[0.6] ease-in duration-300">
-            <p class="ml-10 text-[1.75rem]">card<span class="">Haven</span></p>
-            <ul class="flex justify-between items-center w-[25%] mr-10 text-2xl font-Montserrat font-medium">
+        <div class="w-[75%] h-[70px] bg-lightblue/[0.6] mt-[50px] rounded-[2rem] flex items-center justify-between hover:bg-yellow-200/[0.6] ease-in duration-300 text-darkblue">
+            <p class="ml-10 text-[2.8rem]"><span class='font-Niagara'>card</span><span class='-ml-[7px] font-Italiana'>Haven</span></p>
+            <ul class="flex justify-between items-center w-[25%] mr-10 text-2xl font-Outfit font-medium text-darkblue">
                 <li><a href="#">Home</a></li>
                 <li><a href='#'>Shop</a></li>
                 <li><a href='#'>FAQ</a></li>
@@ -129,12 +364,17 @@
         </div>
     </div>
     <div class="carousel-container h-[512px] w-[75%] mt-[50px]">
+        <div class="video-background">
+            <video autoplay muted loop>
+                <source src="./assets/carousel_bg.mp4" type="video/mp4" />
+            </video>
+        </div>
         <div class="carousel">
             <div class="carousel-item shadow-lg flex flex-col overflow-hidden glowy-shadow" data-description="KFC">
                 <div class="p-4 text-center bg-white h-[30%] w-[100%]">
                     <img src="./assets/kfc_logo.png" class="h-[120%] mx-auto w-80" alt="KFC Logo" />
                 </div>
-                <div class="h-[70%] custom-gradient-kfc text-white text-[2rem] font-bold font-Montserrat w-[100%]">
+                <div class="h-[70%] custom-gradient-kfc text-white text-[2rem] font-bold font-Outfit w-[100%]">
                     <p class="relative top-[78%] left-[25%]">Gift Card</p>
                 </div>
             </div>
@@ -142,15 +382,15 @@
                 <div class="p-4 text-center bg-white h-[30%] w-[100%]">
                     <img src="./assets/prime_logo.png" class="h-[110%] mx-auto w-[80%]" alt="PRIME Logo" />
                 </div>
-                <div class="h-[70%] custom-gradient-prime text-white text-[2rem] font-bold font-Monteserrat w-[100%]">
-                    <p class="relative top-[78%] left-[25%]">Gift Card</p>
+                <div class="h-[70%] custom-gradient-prime text-white text-[2rem] font-bold font-Outfit w-[100%]">
+                    <p class="relative top-[78%] left-[27%]">Gift Card</p>
                 </div>
             </div>
             <div class="carousel-item active shadow-lg overflow-hidden flex flex-col glowy-shadow" data-description="Nykaa">
                 <div class="pt-4 pb-4 text-center bg-white h-[30%]">
                     <img src="./assets/nykaa_logo.png" class="h-[100%] mx-auto w-80" alt="NYKAA Logo" />
                 </div>
-                <div class="h-[70%] custom-gradient-nykaa text-white text-[2rem] font-bold font-Montserrat w-[100%]">
+                <div class="h-[70%] custom-gradient-nykaa text-white text-[2rem] font-bold font-Outfit w-[100%]">
                     <p class="relative top-[78%] left-[25%]">Gift Card</p>
                 </div>
             </div>
@@ -158,7 +398,7 @@
                 <div class="p-4 text-center bg-white h-[30%]">
                     <img src="./assets/westside_logo.png" class="h-[100%] mx-auto w-80" alt="WESTSIDE Logo" />
                 </div>
-                <div class="h-[70%] custom-gradient-westside text-white text-[2rem] font-bold font-Montserrat w-[100%]">
+                <div class="h-[70%] custom-gradient-westside text-white text-[2rem] font-bold font-Outfit w-[100%]">
                     <p class="relative top-[78%] left-[25%]">Gift Card</p>
                 </div>
             </div>
@@ -166,23 +406,189 @@
                 <div class="pl-5 pr-4 pb-4 text-center bg-white h-[30%]">
                     <img src="./assets/pvr_logo.png" class="h-[130%] mx-auto w-80" alt="PVR Logo" />
                 </div>
-                <div class="h-[70%] custom-gradient-pvr text-white text-[2rem] font-bold font-Montserrat w-[100%]">
+                <div class="h-[70%] custom-gradient-pvr text-white text-[2rem] font-bold font-Outfit w-[100%]">
                     <p class="relative top-[78%] left-[25%]">Gift Card</p>
                 </div>
             </div>
         </div>
-        <div class="description-container font-Montserrat text-[2rem] font-bold customBlue">
-            <p class="description">Gift Card 3</p>
+        <div class="description-container font-Outfit text-[2rem] font-bold customBlue italic text-darkblue">
+            <p class="description">PVR</p>
         </div>
     </div>
-    <div class="h-[573px] w-[100%]">
+    <div class="h-auto w-[100%]">
         <img src="./assets/didsomebodysay.png" />
     </div>
-    <div class="text-left text-[4rem] mt-[6rem] w-[80%]">
-        <h1 class="font-Montserrat font-bold text-left text-darkblue"> 
-            <span class='text-left text-[4rem] italic'>Trending</span> 
+    <div class="text-left text-[4rem] w-[80%]">
+        <h1 class="font-Outfit text-left text-darkblue"> 
+            <span class='text-left font-bold text-[4rem] italic'>Trending</span> 
             <span class='decoration-blue-300 underline text-left text-[4rem]'>Right Now</span>
         </h1>
+    </div>
+    <div class="flex items-center justify-between text-left text-[1rem] -mt-12 w-[80%]">
+        <p class="font-Montserrat italic text-[1.2rem] ml-3 text-darkblue">creme de la creme. These gift cards are the talk of the town</p>
+
+        <div class="h-[2.8rem] view-all-container gap-2 w-[12%] pl-4 pr-4 pt-1 pb-1 bg-lightblue/[0.6] text-darkblue flex items-center justify-center rounded-[2rem] font-Outfit font-semibold text-[1.6rem] cursor-pointer hover:bg-yellow-300/[0.6]">
+            <p class="view-all-text">view all</p>
+            <span class="view-all-icon">
+                <i class="fa-solid fa-location-arrow view-all-icon"></i>
+            </span>
+        </div>
+    </div>
+    <div class="flex flex-col items-center justify-center w-[80%] h-[633px] gap-[4%] -mt-5">
+        <div class="flex items-center justify-center w-[100%] h-[20%] gap-[1.5%]">
+            <div id='zepto-container' class="grid-containers px-4 zepto-bg-gradient black-shadow w-[23%] h-full rounded-[1.6rem] flex justify-center items-center flex-col">
+                <div>
+                    <p class="dc-text discount-text-zepto text-white text-[2.35rem] font-Outfit italic font-bold">Upto 3% Off</p>
+                    <img id='zepto-image' class="grid-image" src="./assets/zepto_logo_black.png" />
+                </div>
+            </div>
+            <div id="myntraa-container" class="grid-containers px-4 flex justify-center items-center myntraa-bg-gradient black-shadow w-[23%] h-full rounded-[1.6rem]">
+                <div>
+                    <p class="dc-text discount-text-myntraa text-white text-[2.35rem] font-Outfit italic font-bold">Upto 6% Off</p>
+                    <img id='myntraa-image' class='grid-image' src="./assets/myntraa_logo_black.png" />
+                </div>
+            </div>
+            <div id='nykaa-container' class="grid-containers nykaa-bg-gradient flex justify-center items-center px-4 py-2 black-shadow w-[23%] h-full rounded-[1.6rem]">
+                <div>
+                    <p class="dc-text discount-text-nykaa text-white text-[2.35rem] font-Outfit italic font-bold">Upto 7% Off</p>
+                    <img id="nykaa-image" class="grid-image" src="./assets/nykaa_logo_black.png" />
+                </div>
+            </div>
+            <div id='zomato-container' class="grid-containers zomato-bg-gradient p-8 flex justify-center items-center black-shadow w-[23%] h-full rounded-[1.6rem]">
+                <div>
+                    <p class="dc-text discount-text-zomato text-white text-[2.35rem] font-Outfit italic font-bold">Upto 3% Off</p>
+                    <img id='zomato-image' class='grid-image' src="./assets/zomato_logo_black.png" />
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center justify-center w-[100%] h-[60%] gap-[1.5%]">
+            <div id='starbucks-container' class="grid-containers black-shadow w-[16%] starbucks-bg-gradient h-full rounded-[1.6rem] flex items-center justify-center">
+                <div>
+                    <p class="dc-text discount-text-starbucks text-white text-[2.35rem] font-Outfit italic font-bold">Upto 5% Off</p>
+                    <img id='starbucks-image' class="grid-image" src="./assets/starbucks_logo_black.png" />
+                </div>
+            </div>
+            <div id='amazon-container' class="grid-containers black-shadow w-[62%] amazon-bg-gradient pt-8 px-4 h-full rounded-[1.6rem] flex items-center justify-center">
+                <div>
+                    <p class="dc-text discount-text-amazon text-white text-[5rem] font-Outfit italic font-bold xl:bottom-[11.5%]">!!! FLAT 12% OFF !!!</p>
+                    <img id="amazon-image" class="grid-image" src="./assets/amazon_logo_black.png" />
+                </div>
+            </div>
+            <div id='dominos-container' class="grid-containers px-4 black-shadow w-[16%] h-full dominos-bg-gradient rounded-[1.6rem] flex items-center justify-center">
+                <div>
+                    <p class="dc-text discount-text-dominos text-white text-[2.35rem] font-Outfit italic font-bold">Upto 6% Off</p>
+                    <img id="dominos-image" class="grid-image" src="./assets/dominos_logo_black.png" />
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center justify-center w-[100%] h-[28%] gap-[1.5%]">
+            <div id="bewakoof-container" class="grid-containers p-8 black-shadow w-[31.33%] bewakoof-bg-gradient h-full rounded-[1.6rem] flex items-center justify-center">
+                <div>
+                    <p class="dc-text discount-text-bewakoof text-white text-[2.35rem] font-Outfit italic font-bold">Upto 10% Off</p>
+                    <img id='bewakoof-image' class="grid-image" src="./assets/bewakoof_logo_black.png" />
+                </div>
+            </div>
+            <div id="superdry-container" class="grid-containers p-6 black-shadow w-[31.33%] superdry-bg-gradient h-full rounded-[1.6rem] flex items-center justify-center">
+                <div>
+                    <p class="dc-text discount-text-superdry text-white text-[2.35rem] font-Outfit italic font-bold">Upto 8% Off</p>
+                    <img id="superdry-image" class="grid-image" src="./assets/superdry_logo_black.png" />
+                </div>
+            </div>
+            <div id="wildcraft-container" class="grid-containers p-6 black-shadow w-[31.33%] wildcraft-bg-gradient h-full rounded-[1.6rem] flex items-center justify-center">
+                <div>
+                    <p class="dc-text discount-text-wildcraft text-white text-[2.35rem] font-Outfit italic font-bold">Upto 7% Off</p>
+                    <img id='wildcraft-image' class="grid-image" src="./assets/wildcraft_logo_black.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-left text-[4rem] w-[80%] mt-[70px]">
+        <h1 class="font-Outfit text-left text-darkblue"> 
+            <span class='text-left font-bold text-[4rem] italic'>Purchase</span> 
+            <span class='decoration-blue-300 underline text-left text-[4rem]'>How To</span>
+        </h1>
+    </div>
+    <div class="flex items-center justify-between text-left text-[1rem] -mt-12 w-[80%]">
+        <p class="font-Montserrat italic text-[1.2rem] ml-1 text-darkblue">a quick guide on how to purchase our gift cards.</p>
+    </div>
+    <div class="h-auto w-[80%] -mt-16">
+        <img src="./assets/buying_process.png" />
+    </div>
+    <div class="text-left text-[4rem] w-[80%]">
+        <h1 class="font-Outfit text-left text-darkblue"> 
+            <span class='text-left font-bold text-[4rem] italic'>Questions</span> 
+            <span class='decoration-blue-300 underline text-left text-[4rem]'>Frequently Asked</span>
+        </h1>
+    </div>
+    <div class="flex items-center justify-between text-left text-[1rem] -mt-12 w-[80%]">
+        <p class="font-Montserrat italic text-[1.2rem] ml-1 text-darkblue">quick answers for the curious bunch</p>
+    </div>
+    <div class="customBorder flex w-[92%] h-[600px] justify-center ite ms-center p-auto transparent-bg rounded-[2.5rem]">
+        <div class="opacity-100 flex flex-col  h-[90%] my-[5%] w-[68%]  font-Montserrat">
+            <div class="self-end bg-neongreen text-darkblue rounded-[2.5rem] px-8 py-4 max-w-[55%] text-[0.85rem]">
+                <p class="">What Payment methods are accepted?</p>
+            </div>
+            <div class="self-start bg-newdarkblue text-white rounded-[2.5rem] px-8 py-4 max-w-[55%] text-[0.85rem] mt-[1.2rem]">
+                <p class="">We accept UPI, credit/debit cards and net banking</p>
+            </div>
+            <div class="self-end bg-neongreen text-darkblue rounded-[2.5rem] px-8 py-4 max-w-[55%] text-[0.85rem] mt-[2rem]">
+                <p class="">Is cardHaven safe?</p>
+            </div>
+            <div class="self-start bg-newdarkblue text-white rounded-[2.5rem] px-8 py-4 max-w-[55%] text-[0.85rem] mt-[1.2rem]">
+                <p class="">Yes, absolutely. We only work with authorized distributors to get you the best discounts </p>
+            </div>
+            <div class="self-end bg-neongreen text-darkblue rounded-[2.5rem] px-8 py-4 max-w-[55%] text-[0.85rem] mt-[2rem]">
+                <p class="">How do I purchase a gift card?</p>
+            </div>
+            <div class="self-start bg-newdarkblue text-white rounded-[2.5rem] px-8 py-4 max-w-[55%] text-[0.85rem] mt-[1.2rem]">
+                <p class="">Easy, head over to the "Purchase, How To" section for a quick guide :)</p>
+            </div>
+        </div>
+    </div>
+    <div class="w-full h-[280px] flex items-center justify-center footer-gradient -mb-12">
+        <div class="mt-[70px] w-[90%] h-[210px] flex justify-center">
+            <div class="flex flex-col w-[50%] font-Montserrat">
+                <p class=" text-white self-start font-bold text-[1.2rem] mb-2">Quick Links</p>
+                <div class="self-start flex items-center justify-center">
+                    <div class="w-[28%] h-[150px] flex flex-col mr-[80px]">
+                        <p class="underline justify-start text-white font-semibold">Home</p>
+                        <ul class="whitespace-nowrap list-none no-underline text-white">
+                            <li class="font-extralight"><a href='#'>Banner</a></li>
+                            <li class="font-extralight"><a href='#'>Trending</a></li>
+                            <li class="font-extralight"><a href='#'>How to Purchase</a></li>
+                        </ul>
+                    </div>
+                    <div class="w-[28%] h-[150px] flex flex-col mr-[80px]">
+                        <p class="underline justify-start text-white font-semibold">Shop</p>
+                        <ul class="list-none no-underline text-white">
+                            <li class="font-extralight"><a href='#'>Listings</a></li>
+                        </ul>
+                    </div>
+                    <div class="w-[28%] h-[150px] justify-start flex flex-col">
+                        <p class="underline text-white font-semibold">Newsletter</p>
+                        <ul class="list-none no-underline text-white">
+                            <li class="font-extralight"><a href='#'>About</a></li>
+                            <li class="font-extralight"><a href='#'>Sign Up</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="w-[20%] flex flex-col text-white">
+                <h1 class="text-[3.5rem] self-end -mb-6"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
+                <p class="self-end font-Italiana">Haven for Gift Cards</p>
+                <div class="flex self-end justify-center items-center gap-[6px]">
+                    <div class="flex justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="flex justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </div>
+                    <div class="flex justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="./script.js"></script>
 </body>
