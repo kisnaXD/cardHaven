@@ -4,6 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 2;
     const descriptionElement = document.querySelector('.description');
     let intervalId;
+    const toggleSidebarButton = document.getElementById('toggleSidebar');
+    const closeSidebarButton = document.getElementById('closeSidebar');
+    const sidebar = document.getElementById('sidebar');
+
+    toggleSidebarButton.addEventListener('click', () => {
+        sidebar.classList.add('sidebar-open');
+    });
+
+    closeSidebarButton.addEventListener('click', () => {
+        sidebar.classList.remove('sidebar-open');
+    });
 
     function updateCarousel(newIndex, activeText) {
         items.forEach(item => item.classList.remove('active'));
