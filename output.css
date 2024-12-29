@@ -796,6 +796,18 @@ video {
   margin-top: 3rem;
 }
 
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.mt-\[30px\] {
+  margin-top: 30px;
+}
+
 .block {
   display: block;
 }
@@ -1016,6 +1028,18 @@ video {
   width: 40%;
 }
 
+.w-\[29\%\] {
+  width: 29%;
+}
+
+.w-\[94\%\] {
+  width: 94%;
+}
+
+.w-\[97\%\] {
+  width: 97%;
+}
+
 .min-w-\[180px\] {
   min-width: 180px;
 }
@@ -1110,6 +1134,14 @@ video {
 
 .gap-\[20px\] {
   gap: 20px;
+}
+
+.gap-\[1\%\] {
+  gap: 1%;
+}
+
+.gap-\[2\.5\%\] {
+  gap: 2.5%;
 }
 
 .self-start {

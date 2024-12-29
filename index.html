@@ -155,6 +155,10 @@
         .black-shadow {
             box-shadow: -10px 16px rgba(0, 0, 0, 1);
         }
+        
+        .black-shadow-phone {
+            box-shadow: -6px 12px rgba(0,0,0,1);
+        }
 
         .zepto-bg-gradient {
             background: linear-gradient(to right, #ff71a7 0%, #c800ff 100%);
@@ -411,12 +415,12 @@
         <button id="closeSidebar" class="absolute overflow-x-hidden top-4 right-4 p-2 text-white">
             <i class="fas fa-times"></i>
         </button>
-        <ul class="font-bold absolute overflow-x-hidden top-10 flex flex-col items-center justify-center mt-16 px-4 text-white font-Montserrat underline gap-[20px]">
+        <ul class="font-bold top-10 flex flex-col items-center justify-center mt-16 px-4 text-white font-Montserrat underline gap-[20px]">
             <li><a href="#">Home</a></li>
             <li><a href="#">Shop</a></li>
             <li><a href="#">FAQ</a></li>
         </ul>
-        <div class="absolute overflow-x-hidden ml-[30%] self-right bottom-50% w-[20%] flex flex-col text-white">
+        <div class="mt-auto mb-16 items-center flex flex-col text-white">
             <h1 class="text-[3.5rem] self-end -mb-6"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
             <p class="whitespace-nowrap self-end font-Italiana">Haven for Gift Cards</p>
             <div class="flex self-end justify-center items-center gap-[6px]">
@@ -507,7 +511,7 @@
             <i class="fa-solid fa-location-arrow"></i>
         </div>
     </div>
-    <div class="max-w-full flex flex-col items-center justify-center w-[80%] h-[633px] gap-[4%] -mt-5">
+    <div class="max-w-full hidden md:flex flex-col items-center justify-center w-[80%] h-[633px] gap-[4%] -mt-5">
         <div class="flex items-center justify-center w-[100%] h-[20%] gap-[1.5%]">
             <div id='zepto-container' class="grid-containers px-4 zepto-bg-gradient black-shadow w-[23%] h-full rounded-[1.6rem] flex justify-center items-center flex-col">
                 <div>
@@ -575,7 +579,67 @@
             </div>
         </div>
     </div>
-    <div class="max-w-full text-left text-[4rem] w-[80%] mt-[70px]">
+    <div class="max-w-full flex md:hidden flex-col items-center justify-center w-[80%] h-[633px] gap-[2.5%] -mt-5">
+        <div class="flex items-center justify-center w-[100%] h-[20%] gap-[4%]">
+            <div id='zepto-container' class="grid-containers px-4 zepto-bg-gradient black-shadow-phone w-[29%] h-full rounded-[1.6rem] flex justify-center items-center flex-col">
+                <div>
+                    <p class="dc-text discount-text-zepto text-white text-[2.35rem] font-Outfit italic font-bold">Upto 3% Off</p>
+                    <img id='zepto-image' class="grid-image" src="./assets/zepto_logo_black.png" />
+                </div>
+            </div>
+            <div id='nykaa-container' class="grid-containers nykaa-bg-gradient flex justify-center items-center px-4 py-2 black-shadow-phone w-[29%] h-full rounded-[1.6rem]">
+                <div>
+                    <p class="dc-text discount-text-nykaa text-white text-[2.35rem] font-Outfit italic font-bold">Upto 7% Off</p>
+                    <img id="nykaa-image" class="grid-image" src="./assets/nykaa_logo_black.png" />
+                </div>
+            </div>
+            <div id='zomato-container' class="grid-containers zomato-bg-gradient p-8 flex justify-center items-center black-shadow-phone w-[29%] h-full rounded-[1.6rem]">
+                <div>
+                    <p class="dc-text discount-text-zomato text-white text-[2.35rem] font-Outfit italic font-bold">Upto 3% Off</p>
+                    <img id='zomato-image' class='grid-image' src="./assets/zomato_logo_black.png" />
+                </div>
+            </div>
+        </div>
+        <div id='starbucks-container' class="p-8 grid-containers black-shadow-phone w-[97%] starbucks-bg-gradient h-[20%] rounded-[1.6rem] flex items-center justify-center">
+            <div>
+                <p class="dc-text discount-text-starbucks text-white text-[2.35rem] font-Outfit italic font-bold">Upto 5% Off</p>
+                <img id='starbucks-image' class="grid-image" src="./assets/starbucks_logo_side.png" />
+            </div>
+        </div>
+        <div id='amazon-container' class="grid-containers black-shadow-phone w-[97%] amazon-bg-gradient pt-8 px-4 h-[60%] rounded-[1.6rem] flex items-center justify-center">
+            <div>
+                <p class="dc-text discount-text-amazon text-white text-[5rem] font-Outfit italic font-bold xl:bottom-[11.5%]">!!! FLAT 12% OFF !!!</p>
+                <img id="amazon-image" class="grid-image" src="./assets/amazon_logo_black.png" />
+            </div>
+        </div>
+        <div id='dominos-container' class="p-8 grid-containers px-4 black-shadow-phone w-[97%] h-[20%] dominos-bg-gradient rounded-[1.6rem] flex items-center justify-center">
+            <div>
+                <p class="dc-text discount-text-dominos text-white text-[2.35rem] font-Outfit italic font-bold">Upto 6% Off</p>
+                <img id="dominos-image" class="grid-image" src="./assets/dominos_logo_side.png" />
+            </div>
+        </div>
+        <div class="flex items-center justify-center w-[100%] h-[20%] gap-[4%]">
+            <div id="bewakoof-container" class="grid-containers p-8 black-shadow-phone w-[29%] bewakoof-bg-gradient h-full rounded-[1.6rem] flex items-center justify-center">
+                <div>
+                    <p class="dc-text discount-text-bewakoof text-white text-[2.35rem] font-Outfit italic font-bold">Upto 10% Off</p>
+                    <img id='bewakoof-image' class="grid-image" src="./assets/bewakoof_logo_black.png" />
+                </div>
+            </div>
+            <div id="superdry-container" class="grid-containers p-6 black-shadow-phone w-[29%] superdry-bg-gradient h-full rounded-[1.6rem] flex items-center justify-center">
+                <div>
+                    <p class="dc-text discount-text-superdry text-white text-[2.35rem] font-Outfit italic font-bold">Upto 8% Off</p>
+                    <img id="superdry-image" class="grid-image" src="./assets/superdry_logo_black.png" />
+                </div>
+            </div>
+            <div id="wildcraft-container" class="grid-containers p-6 black-shadow-phone w-[29%] wildcraft-bg-gradient h-full rounded-[1.6rem] flex items-center justify-center">
+                <div>
+                    <p class="dc-text discount-text-wildcraft text-white text-[2.35rem] font-Outfit italic font-bold">Upto 7% Off</p>
+                    <img id='wildcraft-image' class="grid-image" src="./assets/wildcraft_logo_black.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-full text-left text-[4rem] w-[80%] mt-[20px]">
         <h1 class="font-Outfit text-left text-darkblue"> 
             <span class='text-left font-bold text-[30px] md:text-[4rem] italic'>Purchase</span> 
             <span class='decoration-blue-300 underline text-left text-[30px] md:text-[4rem]'>How To</span>
