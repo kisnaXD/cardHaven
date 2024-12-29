@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italiana&family=Metrophobic&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/niagara-solid" rel="stylesheet">
 
-    <style>        
+    <style>
         .carousel-container {
             width: 81%;
             height: 512px;
@@ -36,6 +36,7 @@
 
         .carousel-item {
             position: absolute;
+            overflow-x: hidden;
             width: 215px; 
             height: 300px; 
             background: #fff;
@@ -57,6 +58,7 @@
 
         .description-container {
             position: absolute;
+            overflow-x: hidden;
             bottom: 10px; /* Position description close to the active card */
             text-align: center;
             width: 100%;
@@ -104,6 +106,7 @@
 
         .video-background {
             position: absolute;
+            overflow-x: hidden;
             top: 0;
             left: 0;
             width: 100%;
@@ -207,6 +210,7 @@
         
         .dc-text {
             position: absolute;
+            overflow-x: hidden;
             transform: translate(-50%, -50%);
             z-index: -1;
             opacity: 0;
@@ -217,6 +221,7 @@
 
         .grid-image {
             position: absolute;
+            overflow-x: hidden;
             z-index: 1;
             transform: translate(-50%, -48%);
             transition: all 0.6s ease;
@@ -365,6 +370,7 @@
             position: fixed;
             top: 0;
             right: -100%;
+            display: hidden;
             width: 70%;
             height: 100%;
             background: linear-gradient(to bottom, #1b4965 0%, #3693cb 100%);
@@ -373,12 +379,13 @@
         }
 
         .sidebar-open {
+            display: flex;
             right: 0;
         }
     </style>
 </head>
 <body class="overflow-x-hidden flex flex-col items-center justify-center gap-8">
-    <div class="sticky top-0 left-auto right-auto z-10 hidden md:flex items-center justify-center w-[100%] h-[70px]">
+    <div class="max-w-[100%] sticky top-0 left-auto right-auto z-10 hidden md:flex items-center justify-center w-[100%] h-[70px]">
         <div class="w-[75%] h-[70px] bg-lightblue/[0.6] mt-[50px] rounded-[2rem] flex items-center justify-between hover:bg-yellow-200/[0.6] ease-in duration-300 text-darkblue">
             <p class="ml-10 text-[2.8rem]"><span class='font-Niagara'>card</span><span class='-ml-[7px] font-Italiana'>Haven</span></p>
             <ul class="min-w-[180px] flex justify-between items-center w-[25%] mr-10 text-2xl font-Outfit font-medium text-darkblue">
@@ -391,7 +398,7 @@
             <i class="fa-solid fa-cart-shopping text-3xl cursor-pointer"></i>
         </div>
     </div>
-    <div class="sticky top-0 left-auto right-auto z-10 flex md:hidden items-center justify-center w-[80%] h-[70px]">
+    <div class="max-w-full sticky top-0 left-auto right-auto z-10 flex md:hidden items-center justify-center w-[80%] h-[70px]">
         <div class="-ml-4 w-[80%] h-[40px] bg-lightblue/[0.6] mt-[50px] rounded-[2rem] flex items-center justify-between hover:bg-yellow-200/[0.6] ease-in duration-300 text-darkblue">
             <p class="ml-4 text-[1.8rem]"><span class='font-Niagara'>card</span><span class='-ml-[5px] font-Italiana'>Haven</span></p>
             <i id='toggleSidebar' class=" fa-solid mr-3 cursor-pointer text-[1.45rem] fa-ellipsis-vertical"></i>
@@ -400,16 +407,16 @@
             <i class="fa-solid fa-cart-shopping text-xl cursor-pointer"></i>
         </div>
     </div>
-    <div id="sidebar" class="text-darkblue sidebar flex justify-center flex-col items-center">
-        <button id="closeSidebar" class="absolute top-4 right-4 p-2 text-white">
+    <div id="sidebar" class="max-w-full text-darkblue sidebar flex justify-center flex-col items-center">
+        <button id="closeSidebar" class="absolute overflow-x-hidden top-4 right-4 p-2 text-white">
             <i class="fas fa-times"></i>
         </button>
-        <ul class="font-bold absolute top-10 flex flex-col items-center justify-center mt-16 px-4 text-white font-Montserrat underline gap-[20px]">
+        <ul class="font-bold absolute overflow-x-hidden top-10 flex flex-col items-center justify-center mt-16 px-4 text-white font-Montserrat underline gap-[20px]">
             <li><a href="#">Home</a></li>
             <li><a href="#">Shop</a></li>
             <li><a href="#">FAQ</a></li>
         </ul>
-        <div class="absolute ml-[30%] self-right bottom-50% w-[20%] flex flex-col text-white">
+        <div class="absolute overflow-x-hidden ml-[30%] self-right bottom-50% w-[20%] flex flex-col text-white">
             <h1 class="text-[3.5rem] self-end -mb-6"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
             <p class="whitespace-nowrap self-end font-Italiana">Haven for Gift Cards</p>
             <div class="flex self-end justify-center items-center gap-[6px]">
@@ -425,7 +432,7 @@
             </div>
         </div>
     </div>
-    <div class="carousel-container h-[512px] w-[80%] mt-[20px] md:mt-[50px] flex justify-center items-center z-0 ">
+    <div class="max-w-full carousel-container h-[512px] w-[80%] mt-[20px] md:mt-[50px] flex justify-center items-center z-0 ">
         <div class="video-background">
             <video autoplay muted loop>
                 <source src="./assets/carousel_bg.mp4" type="video/mp4" />
@@ -477,16 +484,16 @@
             <p class="description">PVR</p>
         </div>
     </div>
-    <div class="h-auto w-[100%]">
-        <img src="./assets/didsomebodysay.png" />
+    <div class="max-w-full h-auto w-[100%]">
+        <img class='w-full h-full object-cover' src="./assets/didsomebodysay.png" />
     </div>
-    <div class="text-left text-[4rem] w-[80%]">
+    <div class="max-w-full text-left text-[4rem] w-[80%]">
         <h1 class="font-Outfit text-left text-darkblue"> 
             <span class='text-left font-bold text-[30px] md:text-[4rem] italic'>Trending</span> 
             <span class='decoration-blue-300 underline text-left text-[30px] md:text-[4rem]'>Right Now</span>
         </h1>
     </div>
-    <div class="flex items-center justify-between text-left text-[1rem] -mt-12 w-[80%]">
+    <div class="max-w-full flex items-center justify-between text-left text-[1rem] -mt-12 w-[80%]">
         <p class="font-Montserrat italic text-[10px] md:text-[1.2rem] ml-1 md:ml-3 text-darkblue">creme de la creme. These gift cards are the talk of the town</p>
 
         <div class="hidden md:flex h-[2.8rem] view-all-container gap-2 w-[12%] pl-4 pr-4 pt-1 pb-1 bg-lightblue/[0.6] text-darkblue items-center justify-center rounded-[2rem] font-Outfit font-semibold md:text-[0.95rem] lg:text-[1.6rem] cursor-pointer hover:bg-yellow-300/[0.6]">
@@ -500,7 +507,7 @@
             <i class="fa-solid fa-location-arrow"></i>
         </div>
     </div>
-    <div class="flex flex-col items-center justify-center w-[80%] h-[633px] gap-[4%] -mt-5">
+    <div class="max-w-full flex flex-col items-center justify-center w-[80%] h-[633px] gap-[4%] -mt-5">
         <div class="flex items-center justify-center w-[100%] h-[20%] gap-[1.5%]">
             <div id='zepto-container' class="grid-containers px-4 zepto-bg-gradient black-shadow w-[23%] h-full rounded-[1.6rem] flex justify-center items-center flex-col">
                 <div>
@@ -568,19 +575,19 @@
             </div>
         </div>
     </div>
-    <div class="text-left text-[4rem] w-[80%] mt-[70px]">
+    <div class="max-w-full text-left text-[4rem] w-[80%] mt-[70px]">
         <h1 class="font-Outfit text-left text-darkblue"> 
             <span class='text-left font-bold text-[30px] md:text-[4rem] italic'>Purchase</span> 
             <span class='decoration-blue-300 underline text-left text-[30px] md:text-[4rem]'>How To</span>
         </h1>
     </div>
-    <div class="flex items-center justify-between text-left text-[1rem] -mt-12 w-[80%] mb-4 md:mb-0">
+    <div class="max-w-full flex items-center justify-between text-left text-[1rem] -mt-12 w-[80%] mb-4 md:mb-0">
         <p class="font-Montserrat italic text-[10px] md:text-[1.2rem] ml-1 text-darkblue">a quick guide on how to purchase our gift cards.</p>
     </div>
-    <div class="h-auto w-[80%] -mt-16">
-        <img src="./assets/buying_process.png" />
+    <div class="max-w-full h-auto w-[80%] -mt-16">
+        <img class="h-full w-full object-cover" src="./assets/buying_process.png" />
     </div>
-    <div class="text-left text-[4rem] w-[80%]">
+    <div class="max-w-full text-left text-[4rem] w-[80%]">
         <h1 class="hidden md:block font-Outfit text-left text-darkblue"> 
             <span class='text-left font-bold text-[30px] md:text-[4rem] italic'>Questions</span> 
             <span class='decoration-blue-300 underline text-left text-[30px] md:text-[4rem]'>Frequently Asked</span>
@@ -590,10 +597,10 @@
             <h1 class="font-Outfit self-start text-darkblue text-[30px] decoration-blue-300 underline">Frequently Asked</h1>
         </div>
     </div>
-    <div class="flex items-center justify-between text-left text-[1rem] md:-mt-12 -mt-8 w-[80%]">
+    <div class="max-w-full flex items-center justify-between text-left text-[1rem] md:-mt-12 -mt-8 w-[80%]">
         <p class="font-Montserrat italic text-[10px] md:text-[1.2rem] md:ml-2 text-darkblue">quick answers for the curious bunch</p>
     </div>
-    <div class="customBorder flex w-[92%] h-[600px] justify-center ite ms-center p-auto transparent-bg rounded-[2.5rem]">
+    <div class="max-w-full customBorder flex w-[92%] h-[600px] justify-center ite ms-center p-auto transparent-bg rounded-[2.5rem]">
         <div class="opacity-100 flex flex-col  h-[90%] my-[5%] w-[68%]  font-Montserrat">
             <div class="self-end bg-neongreen text-darkblue rounded-[2.5rem] px-8 py-4 w-auto max-w-[85%] md:max-w-[55%] text-[8px] md:text-[0.85rem]">
                 <p class="">What Payment methods are accepted?</p>
@@ -615,7 +622,7 @@
             </div>
         </div>
     </div>
-    <div class="w-full h-[280px] flex items-center justify-center footer-gradient -mb-12">
+    <div class="hidden max-w-full w-full h-[280px] md:flex items-center justify-center footer-gradient -mb-12">
         <div class="mt-[70px] w-[90%] h-[210px] flex justify-center">
             <div class="flex flex-col w-[50%] font-Montserrat">
                 <p class=" text-white self-start font-bold text-[1.2rem] mb-2">Quick Links</p>
@@ -647,6 +654,51 @@
                 <h1 class="text-[3.5rem] self-end -mb-6"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
                 <p class="self-end font-Italiana">Haven for Gift Cards</p>
                 <div class="flex self-end justify-center items-center gap-[6px]">
+                    <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </div>
+                    <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md:hidden max-w-full w-full h-[500px] flex items-center justify-center footer-gradient -mb-12">
+        <div class="mt-12 w-[90%] h-[410px] flex-col justify-center">
+            <div class="flex flex-col w-full font-Montserrat">
+                <p class=" text-white self-center font-bold text-[1.2rem] mb-2">Quick Links</p>
+                <div class="self-start flex items-center justify-center w-full">
+                    <div class="w-[40%] h-[150px] flex flex-col mr-[80px]">
+                        <p class="underline justify-start text-white font-semibold">Home</p>
+                        <ul class="whitespace-nowrap list-none no-underline text-white">
+                            <li class="font-extralight"><a href='#'>Banner</a></li>
+                            <li class="font-extralight"><a href='#'>Trending</a></li>
+                            <li class="font-extralight"><a href='#'>How to Purchase</a></li>
+                        </ul>
+                    </div>
+                    <div class="text-right w-[40%] h-[150px] flex flex-col">
+                        <p class="underline justify-start text-white font-semibold">Shop</p>
+                        <ul class="list-none no-underline text-white">
+                            <li class="font-extralight"><a href='#'>Listings</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center -mt-16 w-[100%] h-[150px] justify-center items-center flex flex-col">
+                    <p class="underline text-white font-semibold">Newsletter</p>
+                    <ul class="list-none no-underline text-white">
+                        <li class="font-extralight"><a href='#'>About</a></li>
+                        <li class="font-extralight"><a href='#'>Sign Up</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="w-[100%] text-center items-center justify-center flex flex-col text-white">
+                <h1 class="text-[3.5rem] -mb-6"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
+                <p class=" font-Italiana">Haven for Gift Cards</p>
+                <div class="flex justify-center items-center gap-[6px]">
                     <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
                         <i class="fa-brands fa-instagram"></i>
                     </div>
