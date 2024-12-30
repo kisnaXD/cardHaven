@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log(this.innerWidth)
+    console.log(this.innerHeight)
     let items = Array.from(document.querySelectorAll('.carousel-item'));
     let items1 = ['Nykaa', 'Westside', "PVR", "KFC", "Amazon Prime"]
     let currentIndex = 2;
@@ -77,5 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function getOpacity(index) {
         const opacities = [0.5, 0.75, 1, 0.75, 0.5];
         return opacities[index];
+    }
+
+    const objectElement = document.getElementById('object-pointer');
+    objectElement.onload = function() {
+        const svgDoc = objectElement.contentDocument;
+        const svgElement = svgDoc.querySelector('svg')
+        if (svgElement) {
+            svgElement.style.cursor = 'pointer';
+        }
     }
 });

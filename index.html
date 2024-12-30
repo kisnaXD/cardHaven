@@ -14,7 +14,7 @@
     <style>
         .carousel-container {
             width: 81%;
-            height: 512px;
+            height: 680px;
             overflow: hidden;
             position: relative;
             display: flex;
@@ -59,7 +59,7 @@
         .description-container {
             position: absolute;
             overflow-x: hidden;
-            bottom: 10px; /* Position description close to the active card */
+            bottom: 80px; /* Position description close to the active card */
             text-align: center;
             width: 100%;
             pointer-events: none; 
@@ -366,6 +366,12 @@
             position: relative;
         }
 
+        .cb {
+            border-image: linear-gradient(to top, rgb(111,200,255) 0%, rgb(111,200,255) 100%) 0;
+            position: absolute;
+            z-index: -1;
+        }
+
         .footer-gradient {
             background: linear-gradient(to right, #1b4965 0%, #3693cb 100%)
         }
@@ -386,29 +392,33 @@
             display: flex;
             right: 0;
         }
+
+        .cursor-pointer {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="overflow-x-hidden flex flex-col items-center justify-center gap-8">
     <div class="max-w-[100%] sticky top-0 left-auto right-auto z-10 hidden md:flex items-center justify-center w-[100%] h-[70px]">
-        <div class="w-[75%] h-[70px] bg-lightblue/[0.6] mt-[50px] rounded-[2rem] flex items-center justify-between hover:bg-yellow-200/[0.6] ease-in duration-300 text-darkblue">
-            <p class="ml-10 text-[2.8rem]"><span class='font-Niagara'>card</span><span class='-ml-[7px] font-Italiana'>Haven</span></p>
-            <ul class="min-w-[180px] flex justify-between items-center w-[25%] mr-10 text-2xl font-Outfit font-medium text-darkblue">
+        <div class="w-[75%] h-[70px] bg-lightblue/[0.6] mt-[50px] rounded-[2rem] flex items-center justify-between hover:bg-yellow-200 ease-in duration-300 text-darkblue">
+            <p class="ml-10 mb-[2px] text-[2.8rem] cursor-pointer"><span class='font-Niagara'>card</span><span class='-ml-[7px] font-Italiana'>Haven</span></p>
+            <ul class="min-w-[180px] flex justify-between items-center w-[22%] mr-10 text-2xl font-Outfit font-medium text-darkblue">
                 <li><a href="#">Home</a></li>
                 <li><a href='#'>Shop</a></li>
                 <li><a href='#'>FAQ</a></li>
             </ul>
         </div>
-        <div class="bg-lightblue/[0.6] w-[70px] rounded-[100%] h-[70px] items-center justify-center flex mt-[50px] ml-4 hover:bg-yellow-200/[0.6] ease-in duration-300">
-            <i class="fa-solid fa-cart-shopping text-3xl cursor-pointer"></i>
+        <div class="bg-lightblue/[0.6] cursor-pointer w-[4.7%] 2xl:w-[] rounded-[100%] h-full items-center justify-center flex mt-[50px] ml-[1%] 2xl:ml-[1.55%] hover:bg-yellow-200 ease-in duration-300">
+            <object data="./assets/shop_icon.svg" type='image/svg+xml' class="object-pointer"></object>
         </div>
     </div>
     <div class="max-w-full sticky top-0 left-auto right-auto z-10 flex md:hidden items-center justify-center w-[80%] h-[70px]">
-        <div class="-ml-4 w-[80%] h-[40px] bg-lightblue/[0.6] mt-[50px] rounded-[2rem] flex items-center justify-between hover:bg-yellow-200/[0.6] ease-in duration-300 text-darkblue">
-            <p class="ml-4 text-[1.8rem]"><span class='font-Niagara'>card</span><span class='-ml-[5px] font-Italiana'>Haven</span></p>
+        <div class="-ml-4 w-[80%] h-[40px] bg-lightblue/[0.6] mt-[50px] rounded-[2rem] flex items-center justify-between hover:bg-yellow-200 ease-in duration-300 text-darkblue">
+            <p class="ml-4 text-[1.8rem] cursor-pointer"><span class='font-Niagara'>card</span><span class='-ml-[5px] font-Italiana'>Haven</span></p>
             <i id='toggleSidebar' class=" fa-solid mr-3 cursor-pointer text-[1.45rem] fa-ellipsis-vertical"></i>
         </div>
-        <div class="bg-lightblue/[0.6] w-[40px] rounded-[100%] h-[40px] items-center justify-center flex mt-[50px] ml-4 hover:bg-yellow-200/[0.6] ease-in duration-300">
-            <i class="fa-solid fa-cart-shopping text-xl cursor-pointer"></i>
+        <div class="bg-lightblue/[0.6] w-[40px] rounded-[100%] h-[40px] items-center justify-center flex mt-[50px] ml-4 hover:bg-yellow-200 ease-in duration-300">
+            <object data="./assets/shop_icon.svg" type='image/svg+xml' class="h-[25px] w-[25px] object-pointer"></object>
         </div>
     </div>
     <div id="sidebar" class="max-w-full text-darkblue sidebar flex justify-center flex-col items-center">
@@ -421,7 +431,7 @@
             <li><a href="#">FAQ</a></li>
         </ul>
         <div class="mt-auto mb-16 items-center flex flex-col text-white">
-            <h1 class="text-[3.5rem] self-end -mb-6"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
+            <h1 class="text-[3.5rem] self-end -mb-6 cursor-pointer"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
             <p class="whitespace-nowrap self-end font-Italiana">Haven for Gift Cards</p>
             <div class="flex self-end justify-center items-center gap-[6px]">
                 <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
@@ -436,7 +446,7 @@
             </div>
         </div>
     </div>
-    <div class="max-w-full carousel-container h-[512px] w-[80%] mt-[20px] md:mt-[50px] flex justify-center items-center z-0 ">
+    <div class="max-w-full carousel-container h-[680px] w-[80%] mt-[20px] md:mt-[50px] flex justify-center items-center z-0 ">
         <div class="video-background">
             <video autoplay muted loop>
                 <source src="./assets/carousel_bg.mp4" type="video/mp4" />
@@ -484,8 +494,8 @@
                 </div>
             </div>
         </div>
-        <div class="description-container font-Outfit text-[2rem] font-bold customBlue italic text-darkblue">
-            <p class="description">PVR</p>
+        <div class="description-container font-Outfit text-[4rem] font-bold italic text-darkblue">
+            <p class="description text-[3rem]">PVR</p>
         </div>
     </div>
     <div class="max-w-full h-auto w-[100%]">
@@ -503,11 +513,11 @@
         <div class="hidden md:flex h-[2.8rem] view-all-container gap-2 w-[12%] pl-4 pr-4 pt-1 pb-1 bg-lightblue/[0.6] text-darkblue items-center justify-center rounded-[2rem] font-Outfit font-semibold md:text-[0.95rem] lg:text-[1.6rem] cursor-pointer hover:bg-yellow-300/[0.6]">
             <p class="view-all-text">view all</p>
             <span class="view-all-icon">
-                <i class="fa-solid fa-location-arrow view-all-icon"></i>
+                <object data="./assets/right_arrow.svg" class="view-all-icon"> </object>
             </span>
         </div>
 
-        <div class="flex md:hidden justify-center items-center h-[35px] w-[35px] bg-lightblue/[0.6] text-darkblue rounded-full p-2 hover:bg-yellow-200/[0.6] cursor-pointer">
+        <div class="flex md:hidden justify-center items-center h-[35px] w-[35px] bg-lightblue/[0.6] text-darkblue rounded-full p-2 hover:bg-yellow-200 cursor-pointer">
             <i class="fa-solid fa-location-arrow"></i>
         </div>
     </div>
@@ -665,7 +675,7 @@
         <p class="font-Montserrat italic text-[10px] md:text-[1.2rem] md:ml-2 text-darkblue">quick answers for the curious bunch</p>
     </div>
     <div class="max-w-full customBorder flex w-[92%] h-[600px] justify-center ite ms-center p-auto transparent-bg rounded-[2.5rem]">
-        <div class="opacity-100 flex flex-col  h-[90%] my-[5%] w-[68%]  font-Montserrat">
+        <div class="opacity-100 flex flex-col  h-[90%] my-[5%] w-[68%] font-semibold font-Montserrat">
             <div class="self-end bg-neongreen text-darkblue rounded-[2.5rem] px-8 py-4 w-auto max-w-[85%] md:max-w-[55%] text-[8px] md:text-[0.85rem]">
                 <p class="">What Payment methods are accepted?</p>
             </div>
@@ -715,7 +725,7 @@
                 </div>
             </div>
             <div class="w-[20%] flex flex-col text-white">
-                <h1 class="text-[3.5rem] self-end -mb-6"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
+                <h1 class="text-[3.5rem] self-end -mb-6 cursor-pointer"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
                 <p class="self-end font-Italiana">Haven for Gift Cards</p>
                 <div class="flex self-end justify-center items-center gap-[6px]">
                     <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
@@ -760,7 +770,7 @@
                 </div>
             </div>
             <div class="w-[100%] text-center items-center justify-center flex flex-col text-white">
-                <h1 class="text-[3.5rem] -mb-6"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
+                <h1 class="text-[3.5rem] -mb-6 cursor-pointer"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
                 <p class=" font-Italiana">Haven for Gift Cards</p>
                 <div class="flex justify-center items-center gap-[6px]">
                     <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">

@@ -808,6 +808,26 @@ video {
   margin-top: 30px;
 }
 
+.ml-\[2\%\] {
+  margin-left: 2%;
+}
+
+.ml-\[1\%\] {
+  margin-left: 1%;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-\[2px\] {
+  margin-bottom: 2px;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -924,6 +944,54 @@ video {
   height: 410px;
 }
 
+.h-\[8\.62\%\] {
+  height: 8.62%;
+}
+
+.h-\[10\%\] {
+  height: 10%;
+}
+
+.h-\[50\%\] {
+  height: 50%;
+}
+
+.h-\[700px\] {
+  height: 700px;
+}
+
+.h-\[812px\] {
+  height: 812px;
+}
+
+.h-\[80\%\] {
+  height: 80%;
+}
+
+.h-\[750px\] {
+  height: 750px;
+}
+
+.h-\[720px\] {
+  height: 720px;
+}
+
+.h-\[680px\] {
+  height: 680px;
+}
+
+.h-\[48px\] {
+  height: 48px;
+}
+
+.h-\[35\.73px\] {
+  height: 35.73px;
+}
+
+.h-\[25px\] {
+  height: 25px;
+}
+
 .w-80 {
   width: 20rem;
 }
@@ -1038,6 +1106,38 @@ video {
 
 .w-\[97\%\] {
   width: 97%;
+}
+
+.w-\[22\%\] {
+  width: 22%;
+}
+
+.w-\[4\%\] {
+  width: 4%;
+}
+
+.w-\[4\.68\%\] {
+  width: 4.68%;
+}
+
+.w-\[4\.69\%\] {
+  width: 4.69%;
+}
+
+.w-\[4\.7\%\] {
+  width: 4.7%;
+}
+
+.w-\[48px\] {
+  width: 48px;
+}
+
+.w-\[37\.83px\] {
+  width: 37.83px;
+}
+
+.w-\[25px\] {
+  width: 25px;
 }
 
 .min-w-\[180px\] {
@@ -1432,6 +1532,10 @@ video {
   font-size: 1.45rem;
 }
 
+.text-\[3rem\] {
+  font-size: 3rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -1517,6 +1621,11 @@ video {
   background-color: rgb(253 224 71 / 0.6);
 }
 
+.hover\:bg-yellow-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 240 138 / var(--tw-bg-opacity, 1));
+}
+
 @media (min-width: 768px) {
   .md\:ml-3 {
     margin-left: 0.75rem;
@@ -1584,5 +1693,39 @@ video {
 @media (min-width: 1280px) {
   .xl\:bottom-\[11\.5\%\] {
     bottom: 11.5%;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:ml-\[4\%\] {
+    margin-left: 4%;
+  }
+
+  .\32xl\:ml-\[2\%\] {
+    margin-left: 2%;
+  }
+
+  .\32xl\:ml-\[1\.8\%\] {
+    margin-left: 1.8%;
+  }
+
+  .\32xl\:ml-\[1\.75\%\] {
+    margin-left: 1.75%;
+  }
+
+  .\32xl\:ml-\[1\.65\%\] {
+    margin-left: 1.65%;
+  }
+
+  .\32xl\:ml-\[1\.6\%\] {
+    margin-left: 1.6%;
+  }
+
+  .\32xl\:ml-\[1\.55\%\] {
+    margin-left: 1.55%;
+  }
+
+  .\32xl\:w-\[\] {
+    width: ;
   }
 }
