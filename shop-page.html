@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shop Page</title>
+        <link rel="stylesheet" href="./output.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italiana&family=Metrophobic&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.cdnfonts.com/css/niagara-solid" rel="stylesheet">
+    </head>
+    <style>
+        .footer-gradient {
+            background: linear-gradient(to right, #1b4965 0%, #3693cb 100%)
+        }
+
+        .item-list, .item-list-2 {
+            position: relative;
+        }
+
+        .item-list-2 {
+            border-radius: 45px;
+            background-color: rgba(111,201,255, 0.6);
+        }
+            
+        .item, .item-2 {
+            padding: 10px 20px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hover-circle, .hover-circle-2 { 
+            position: absolute; 
+            top: 0;
+            left: 0%; 
+            width: 100px; 
+            height: 43px;
+            background-color: rgba(111,201,255, 0.6); 
+            border-radius: 15px;
+            transition: transform 0.6s ease, left 0.6s ease, background-color 0.6s ease, width 0.6s ease;
+            z-index: 0; 
+            pointer-events: none;
+        }
+
+        .hover-circle:hover {
+            background-color: rgba(254,240,138,0.6);
+        }
+        
+        .hover-circle-2 {
+            border-radius: 40px;
+            background-color: rgba(111,201,255,0.8);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            display: hidden;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(to bottom, #1b4965 0%, #3693cb 100%);
+            transition: right 0.6s ease-in-out;
+            z-index: 10;
+        }
+
+        .sidebar-open {
+            display: flex;
+            right: 0;
+        }
+
+        .video-background {
+            position: absolute;
+            overflow-x: hidden;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+            opacity: 0.45;
+            z-index: -1;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(to right, #3693cb 100%, transparent 16%);
+        }
+
+        .view-all-icon-white {
+            color: white;
+        }
+
+        .active {
+            display: flex;
+        }
+
+        .styled-table {
+            width: 100%;
+            text-align: left;
+            border-radius: 8px;
+            border:none;
+        }
+        
+        .styled-table thead {
+            background-color: #f3f3f3;
+        }
+        
+        .styled-table th, 
+        .styled-table td {
+            padding: 15px;
+        }
+        
+        .styled-table th {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .styled-table tbody tr {
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .styled-table tbody tr.highlight-row {
+            background-color: #e8f4fc;
+        }
+        
+        .styled-table tbody tr:last-child {
+            border-bottom: none;
+        }
+        
+        .name-cell {
+            display: flex;
+            align-items: center;
+        }
+        
+        .name-cell .logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        
+        .styled-table tbody td {
+            color: #555;
+        }
+        
+        .styled-table tbody td:nth-child(1) {
+            font-weight: bold;
+        }
+        
+        .styled-table tbody td:nth-child(3),
+        .styled-table tbody td:nth-child(4) {
+            text-align: center;
+        }
+
+        .view-all-container {
+            transition: width 0.4s ease-in;
+            white-space: nowrap;
+        }
+
+        .view-all-container:hover {
+            width: 15%;
+        }
+
+        .view-all-text {
+            transition: transform 0.4s ease;
+            margin-right: 20px;
+        }
+
+        .view-all-container:hover .view-all-text {
+            transform: translateX(-2px);
+            margin-right: 0px;
+        }
+
+        .view-all-icon {
+            opacity: 0;
+            z-index: -1;
+            margin-left: -30px;
+            transition: opacity 0.4s ease-in-out, margin-left 0.4s ease-in-out;
+        }
+
+        .view-all-container:hover .view-all-icon {
+            z-index: 0;
+            opacity: 1;
+            margin-left: 0px;
+        }
+
+        .amazon-bg-gradient {
+            background: linear-gradient(to left, #ffc300 0%, #fff171 48%, #ffc300 100%);
+        }
+
+    </style>
+    <body class="overflow-x-hidden flex flex-col items-center justify-center">
+        <!--Navbar Start (for PC)-->
+        <div class="max-w-[100%] sticky top-0 left-auto right-auto z-10 hidden md:flex items-center justify-center w-[100%] h-[70px]">
+            <div class="w-[75%] h-[70px] bg-lightblue/[0.6] mt-[50px] rounded-[2rem] flex items-center justify-between hover:bg-yellow-200 ease-in duration-300 text-darkblue">
+                <p class="ml-10 mb-[2px] text-[2.8rem] cursor-pointer"><span class='font-Niagara'>card</span><span class='-ml-[7px] font-Italiana'>Haven</span></p>
+                <ul class="min-w-[180px] flex justify-between items-center w-[22%] mr-10 text-2xl font-Outfit font-medium text-darkblue">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href='shop-page.html'>Shop</a></li>
+                    <li><a href='#'>FAQ</a></li>
+                </ul>
+            </div>
+            <div class="bg-lightblue/[0.6] cursor-pointer w-[4.7%] 2xl:w-[] rounded-[100%] h-full items-center justify-center flex mt-[50px] ml-[1%] 2xl:ml-[1.55%] hover:bg-yellow-200 ease-in duration-300">
+                <object data="./assets/shop_icon.svg" type='image/svg+xml' class="object-pointer"></object>
+            </div>
+        </div>
+        <div class="max-w-full sticky top-0 left-auto right-auto z-10 flex md:hidden items-center justify-center w-[80%] h-[70px]">
+            <div class="-ml-4 w-[80%] h-[40px] bg-lightblue/[0.6] mt-[50px] rounded-[2rem] flex items-center justify-between hover:bg-yellow-200 ease-in duration-300 text-darkblue">
+                <p class="ml-4 text-[1.8rem] cursor-pointer"><span class='font-Niagara'>card</span><span class='-ml-[5px] font-Italiana'>Haven</span></p>
+                <i id='toggleSidebar' class=" fa-solid mr-3 cursor-pointer text-[1.45rem] fa-ellipsis-vertical"></i>
+            </div>
+            <div class="bg-lightblue/[0.6] w-[40px] rounded-[100%] h-[40px] items-center justify-center flex mt-[50px] ml-4 hover:bg-yellow-200 ease-in duration-300">
+                <object data="./assets/shop_icon.svg" type='image/svg+xml' class="h-[25px] w-[25px] object-pointer"></object>
+            </div>
+        </div>
+        <!--Navbar End (for PC)-->
+        <!--Sidebar (for Phone)-->
+        <div id="sidebar" class="max-w-full text-darkblue sidebar flex justify-center flex-col items-center">
+            <button id="closeSidebar" class="absolute overflow-x-hidden top-4 right-4 p-2 text-white">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="font-bold top-10 flex flex-col items-center justify-center mt-16 px-4 text-white font-Montserrat underline gap-[20px]">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop-page.html">Shop</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+            <div class="mt-auto mb-16 items-center flex flex-col text-white">
+                <h1 class="text-[3.5rem] self-end -mb-6 cursor-pointer"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
+                <p class="whitespace-nowrap self-end font-Italiana">Haven for Gift Cards</p>
+                <div class="flex self-end justify-center items-center gap-[6px]">
+                    <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </div>
+                    <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Sidebar End-->
+        <!--Second Navbar Starts-->
+        <div class="mt-[80px] w-[80%] flex items-center text-left">
+            <ul class="item-list mb-1 flex w-[50%] justify-start items-center font-bold gap-[3%] list-none text-darkblue no-underline">
+                <li class="item item-selected"><span class='mb-4'>Gaming</span></li>
+                <li class='item'>Shopping</li>
+                <li class="item">Food</li>
+                <li class="item">Entertainment</li>
+                <li class='item'>More</li>
+            </ul>
+        </div>
+        <!--Second Navbar Ends-->
+        <!--Hero Box Starts-->
+        <div class="max-w-full hero-gradient relative z-0 mt-[27.5px] w-[80%] h-[400px] flex items-center justify-center rounded-3xl">
+            <div class="video-background rounded-3xl">
+                <video autoplay muted loop>
+                    <source src="./assets/carousel_bg.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <div class="hero-items relative z-1 w-full px-1 active justify-center items-center">
+                <div class="w-[30%] h-auto">
+                    <img src="./assets/playstation_logo_black.png" style="transform: scale(1.4)"/>
+                </div>
+                <div class="w-[70%] h-full flex-col justify-between items-center">
+                    <div class="w-auto justify-self-end text-white view-all-icon-white mr-4 -mt-10">
+                        <object data="./assets/right-arrow-white.svg" type="image/svg+xml"></object>
+                    </div>
+                    <div class="w-full flex items-center justify-between">
+                        <div class="w-[20%] text-left">
+                            <h1 class="text-white text-[2rem] font-bold font-Outfit">PlayStation</h1>
+                            <p class="bg-neongreen text-darkblue font-Outfit text-[0.9rem] text-center rounded-3xl w-[50%]">verified  <i class="fa-solid fa-check"></i></p>
+                        </div>
+                    </div>
+                    <div class="mt-[7.5rem] -mb-[7rem] w-full flex justify-between">
+                        <div class="w-[20%] self-center text-left -mt-8">
+                            <p class="text-white text-[0.9rem] font-Outfit -mb-2 font-bold">#1 in Gaming</p>
+                            <p class="text-white text-[1.2rem] font-Outfit font-bold">#6 Overall</p>
+                        </div>
+                        <div class="text-white/25 relative bottom-0 self-end">
+                            <h1 class="text-[8rem] font-extrabold font-Montserrat">Spotlight</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-items hidden relative z-1 w-full px-1 py-6 justify-center items-center">
+                <div class="w-[30%] h-auto">
+                    <img src="./assets/nykaa_logo_black.png" style="transform: scale(1)"/>
+                </div>
+                <div class="w-[70%] h-full flex-col justify-between items-center">
+                    <div class="w-full flex items-center justify-between">
+                        <div class="w-[20%] text-left">
+                            <h1 class="text-white text-[2rem] font-bold font-Outfit">Nykaa</h1>
+                            <p class="bg-neongreen text-darkblue font-Outfit text-[0.9rem] text-center rounded-3xl w-[50%]">verified  <i class="fa-solid fa-check"></i></p>
+                        </div>
+                        <div class="text-white view-all-icon-white mr-4">
+                            <object data="./assets/right-arrow-white.svg" type="image/svg+xml"></object>
+                        </div>
+                    </div>
+                    <div class="mt-[7.5rem] -mb-[7rem] w-full flex justify-between">
+                        <div class="w-[20%] self-center text-left -mt-8">
+                            <p class="text-white text-[0.9rem] font-Outfit -mb-2 font-bold">#1 in Shopping</p>
+                            <p class="text-white text-[1.2rem] font-Outfit font-bold">#4 Overall</p>
+                        </div>
+                        <div class="text-white/25 relative bottom-0 self-end">
+                            <h1 class="text-[8rem] font-extrabold font-Montserrat">Spotlight</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-items hidden relative z-1 w-full px-1 py-6 justify-center items-center">
+                <div class="w-[30%] h-auto">
+                    <img src="./assets/pvr_logo_black.png" style="transform: scale(0.85)"/>
+                </div>
+                <div class="w-[70%] h-full flex-col justify-between items-center">
+                    <div class="w-full flex items-center justify-between">
+                        <div class="w-[20%] text-left">
+                            <h1 class="text-white text-[2rem] font-bold font-Outfit">PVR</h1>
+                            <p class="bg-neongreen text-darkblue font-Outfit text-[0.9rem] text-center rounded-3xl w-[50%]">verified  <i class="fa-solid fa-check"></i></p>
+                        </div>
+                        <div class="text-white view-all-icon-white mr-4">
+                            <object data="./assets/right-arrow-white.svg" type="image/svg+xml"></object>
+                        </div>
+                    </div>
+                    <div class="mt-[7.5rem] -mb-[7rem] w-full flex justify-between">
+                        <div class="w-[20%] self-center text-left -mt-8">
+                            <p class="text-white text-[0.9rem] font-Outfit -mb-2 font-bold">#1 in Entertainment</p>
+                            <p class="text-white text-[1.2rem] font-Outfit font-bold">#2 Overall</p>
+                        </div>
+                        <div class="text-white/25 relative bottom-0 self-end">
+                            <h1 class="text-[8rem] font-extrabold font-Montserrat">Spotlight</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-items hidden relative z-1 w-full px-1 py-6 justify-center items-center">
+                <div class="w-[30%] h-auto ml-4">
+                    <img src="./assets/dominos_logo_black.png" style="transform: scale(1)"/>
+                </div>
+                <div class="w-[70%] h-full flex-col justify-between items-center">
+                    <div class="w-full flex items-center justify-between">
+                        <div class="w-[20%] text-left">
+                            <h1 class="text-white text-[2rem] font-bold font-Outfit">Dominos</h1>
+                            <p class="bg-neongreen text-darkblue font-Outfit text-[0.9rem] text-center rounded-3xl w-[50%]">verified  <i class="fa-solid fa-check"></i></p>
+                        </div>
+                        <div class="text-white view-all-icon-white mr-4">
+                            <object data="./assets/right-arrow-white.svg" type="image/svg+xml"></object>
+                        </div>
+                    </div>
+                    <div class="mt-[7.5rem] -mb-[7rem] w-full flex justify-between">
+                        <div class="w-[20%] self-center text-left -mt-8">
+                            <p class="text-white text-[0.9rem] font-Outfit -mb-2 font-bold">#1 in Food</p>
+                            <p class="text-white text-[1.2rem] font-Outfit font-bold">#5 Overall</p>
+                        </div>
+                        <div class="text-white/25 relative bottom-0 self-end">
+                            <h1 class="text-[8rem] font-extrabold font-Montserrat">Spotlight</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-items hidden relative z-1 w-full px-1 py-6 justify-center items-center">
+                <div class="w-[30%] h-auto">
+                    <img src="./assets/arrow_logo_black.png" style="transform: scale(0.85)"/>
+                </div>
+                <div class="w-[70%] h-full flex-col justify-between items-center">
+                    <div class="w-full flex items-center justify-between">
+                        <div class="w-[20%] text-left">
+                            <h1 class="text-white text-[2rem] font-bold font-Outfit">Arrow</h1>
+                            <p class="bg-neongreen text-darkblue font-Outfit text-[0.9rem] text-center rounded-3xl w-[50%]">verified  <i class="fa-solid fa-check"></i></p>
+                        </div>
+                        <div class="text-white view-all-icon-white mr-4">
+                            <object data="./assets/right-arrow-white.svg" type="image/svg+xml"></object>
+                        </div>
+                    </div>
+                    <div class="mt-[7.5rem] -mb-[7rem] w-full flex justify-between">
+                        <div class="w-[20%] self-center text-left -mt-8">
+                            <p class="text-white text-[0.9rem] font-Outfit -mb-2 font-bold">#1 in More</p>
+                            <p class="text-white text-[1.2rem] font-Outfit font-bold">#3 Overall</p>
+                        </div>
+                        <div class="text-white/25 relative bottom-0 self-end">
+                            <h1 class="text-[8rem] font-extrabold font-Montserrat">Spotlight</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Hero Box Ends-->
+        <!--Third Navbar Starts-->
+        <div class="w-[80%] mt-20 flex items-center text-left">
+            <ul class="item-list-2 mb-1 flex w-[16%] justify-start items-center font-bold gap-[3%] list-none text-darkblue no-underline">
+                <li class="item-2 item-selected-2 ">Trending</li>
+                <li class="item-2">Top</li>
+            </ul>
+        </div>
+        <!--Third Navbar Ends-->
+        <!--Table Starts-->
+        <div class="w-[80%] rounded-xl overflow-x-auto h-auto mt-4 flex justify-between items-center">
+            <table class="w-[48%] bg-white"> 
+                <thead class=""> 
+                    <tr> 
+                        <th class="py-2 px-4 text-left text-gray-300">No.</th> 
+                        <th class="py-2 px-4 text-left text-gray-300">Name</th> 
+                        <th class="py-2 px-4 text-left text-gray-300">Amount</th> 
+                        <th class="py-2 px-4 text-left text-gray-300">Discount</th> 
+                    </tr> 
+                </thead> 
+                <tbody class="text-darkblue font-semibold rounded-xl"> 
+                    <tr class="py-2 bg-blue-100 rounded-lg"> 
+                        <td class="py-2 px-4 rounded-tl-xl rounded-bl-xl">1</td> 
+                        <td class="-ml-4 my-[0.375rem] flex justify-center items-center"> 
+                            <div class="rounded-xl flex justify-center items-center w-[65px] h-[65px] bg-blue-700">
+                                <img src="./assets/playstation_logo_white.png" style="transform: scale(1.2)" />
+                            </div>
+                            <p class="ml-4 font-semibold font-Outfit text-xl">PlayStation</p>
+                        </td> 
+                        <td class="py-2 px-4 ">₹1200</td> 
+                        <td class="py-2 px-4 rounded-tr-xl rounded-br-xl">12%</td> 
+                    </tr> 
+                    <tr> 
+                        <td class="py-2 px-4 ">2</td> 
+                        <td class="-ml-4 my-[0.375rem] flex justify-center items-center"> 
+                            <div class="rounded-xl flex justify-center items-center w-[65px] h-[65px] bg-blue-700">
+                                <img src="./assets/playstation_logo_white.png" style="transform: scale(1.2)" />
+                            </div>
+                            <p class="ml-4 font-semibold font-Outfit text-xl">PlayStation</p>
+                        </td> 
+                        <td class="py-2 px-4 ">₹6000</td> 
+                        <td class="py-2 px-4 ">12%</td> 
+                    </tr> 
+                    <tr> 
+                        <td class="py-2 px-4 ">3</td> 
+                        <td class="-ml-4 my-[0.375rem] flex justify-center items-center"> 
+                            <div class="rounded-xl flex justify-center items-center w-[65px] h-[65px] bg-blue-700">
+                                <img src="./assets/playstation_logo_white.png" style="transform: scale(1.2)" />
+                            </div>
+                            <p class="ml-4 font-semibold font-Outfit text-xl">PlayStation</p>
+                        </td> 
+                        <td class="py-2 px-4 ">₹420</td> 
+                        <td class="py-2 px-4 ">12%</td> 
+                    </tr>
+                    <tr> 
+                        <td class="py-2 px-4 ">4</td> 
+                        <td class="-ml-4 my-[0.375rem] flex justify-center items-center"> 
+                            <div class="rounded-xl flex justify-center items-center w-[65px] h-[65px] bg-blue-700">
+                                <img src="./assets/playstation_logo_white.png" style="transform: scale(1.2)" />
+                            </div>
+                            <p class="ml-4 font-semibold font-Outfit text-xl">PlayStation</p>
+                        </td> 
+                        <td class="py-2 px-4 ">₹6000</td> 
+                        <td class="py-2 px-4 ">12%</td> 
+                    </tr>
+                    <tr> 
+                        <td class="py-2 px-4 ">5</td> 
+                        <td class="-ml-4 my-[0.375rem] flex justify-center items-center"> 
+                            <div class="rounded-xl flex justify-center items-center w-[65px] h-[65px] bg-blue-700">
+                                <img src="./assets/playstation_logo_white.png" style="transform: scale(1.2)" />
+                            </div>
+                            <p class="ml-4 font-semibold font-Outfit text-xl">PlayStation</p>
+                        </td> 
+                        <td class="py-2 px-4 ">₹420</td> 
+                        <td class="py-2 px-4 ">12%</td> 
+                    </tr>
+                </tbody>
+            </table>
+            <table class="w-[48%] bg-white"> 
+                <thead class=""> 
+                    <tr> 
+                        <th class=""></th>
+                        <th class="py-2 px-4 text-left text-gray-300">Name</th> 
+                        <th class="py-2 px-4 text-left text-gray-300">Amount</th> 
+                        <th class="py-2 px-4 text-left text-gray-300">Discount</th> 
+                    </tr> 
+                </thead> 
+                <tbody class="text-darkblue font-semibold rounded-xl"> 
+                    <tr class="py-2"> 
+                        <td class="py-2 px-4 ">6</td> 
+                        <td class="-ml-4 my-[0.375rem] flex justify-center items-center"> 
+                            <div class="rounded-xl flex justify-center items-center w-[65px] h-[65px] bg-blue-700">
+                                <img src="./assets/playstation_logo_white.png" style="transform: scale(1.2)" />
+                            </div>
+                            <p class="ml-4 font-semibold font-Outfit text-xl">PlayStation</p>
+                        </td> 
+                        <td class="py-2 px-4 ">₹1200</td> 
+                        <td class="py-2 px-4 ">12%</td> 
+                    </tr> 
+                    <tr> 
+                        <td class="py-2 px-4 ">7</td> 
+                        <td class="-ml-4 my-[0.375rem] flex justify-center items-center"> 
+                            <div class="rounded-xl flex justify-center items-center w-[65px] h-[65px] bg-blue-700">
+                                <img src="./assets/playstation_logo_white.png" style="transform: scale(1.2)" />
+                            </div>
+                            <p class="ml-4 font-semibold font-Outfit text-xl">PlayStation</p>
+                        </td> 
+                        <td class="py-2 px-4 ">₹6000</td> 
+                        <td class="py-2 px-4 ">12%</td> 
+                    </tr> 
+                    <tr> 
+                        <td class="py-2 px-4 ">8</td> 
+                        <td class="-ml-4 my-[0.375rem] flex justify-center items-center"> 
+                            <div class="rounded-xl flex justify-center items-center w-[65px] h-[65px] bg-blue-700">
+                                <img src="./assets/playstation_logo_white.png" style="transform: scale(1.2)" />
+                            </div>
+                            <p class="ml-4 font-semibold font-Outfit text-xl">PlayStation</p>
+                        </td> 
+                        <td class="py-2 px-4 ">₹420</td> 
+                        <td class="py-2 px-4 ">12%</td> 
+                    </tr>
+                    <tr> 
+                        <td class="py-2 px-4 ">9</td> 
+                        <td class="-ml-4 my-[0.375rem] flex justify-center items-center"> 
+                            <div class="rounded-xl flex justify-center items-center w-[65px] h-[65px] bg-blue-700">
+                                <img src="./assets/playstation_logo_white.png" style="transform: scale(1.2)" />
+                            </div>
+                            <p class="ml-4 font-semibold font-Outfit text-xl">PlayStation</p>
+                        </td> 
+                        <td class="py-2 px-4 ">₹6000</td> 
+                        <td class="py-2 px-4 ">12%</td> 
+                    </tr>
+                    <tr> 
+                        <td class="py-2 px-4 ">10</td> 
+                        <td class="-ml-4 my-[0.375rem] flex justify-center items-center"> 
+                            <div class="rounded-xl flex justify-center items-center w-[65px] h-[65px] bg-blue-700">
+                                <img src="./assets/playstation_logo_white.png" style="transform: scale(1.2)" />
+                            </div>
+                            <p class="ml-4 font-semibold font-Outfit text-xl">PlayStation</p>
+                        </td> 
+                        <td class="py-2 px-4 ">₹420</td> 
+                        <td class="py-2 px-4 ">12%</td> 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--Table Ends-->
+        <!--Popular in Shopping Starts-->
+        <div class="w-[80%] h-auto flex flex-col justify-center items-center mt-[50px]">
+            <div class="flex justify-between items-center w-full">
+                <h1 class='text-darkblue font-bold text-[1.6rem]'>Popular in Shopping</h1>
+                <div class="hidden md:flex h-[2.8rem] view-all-container gap-2 w-[12%] pl-4 pr-4 pt-1 pb-1 bg-lightblue/[0.6] text-darkblue items-center justify-center rounded-[2rem] font-Outfit font-semibold md:text-[0.95rem] lg:text-[1.6rem] cursor-pointer hover:bg-yellow-300/[0.6]">
+                    <p class="view-all-text">view all</p>
+                    <span class="view-all-icon">
+                        <object data="./assets/right_arrow.svg" class="view-all-icon"> </object>
+                    </span>
+                </div>
+            </div>
+            <div class="mt-7 flex justify-between items-center w-full">
+                <div class="h-[310px] w-[22%] rounded-2xl overflow-hidden bg-darkblue">
+                    <div class="amazon-bg-gradient w-full h-[60%] flex justify-center items-center">
+                        <img src="./assets/amazon_logo_black.png" style="transform: scale(0.85)"/>
+                    </div>
+                    <div class="w-full h-[40%] flex flex-col justify-between items-center">
+                        <div class="w-[80%] mt-3 flex justify-between items-center">
+                            <h1 class="text-white font-bold text-[1.5rem] font-Outfit">Amazon</h1>
+                            <p class="bg-transparent border-2 border-solid border-white rounded-3xl px-3 py-[0.375rem] cursor-pointer font-semibold font-Outfit text-white hover:bg-white hover:text-darkblue duration-300 transition-all ease-in text-[0.85rem]"><i class="fa-solid font-bold fa-plus mr-[0.4rem]"></i>  Buy</p>
+                        </div>
+                        <div class="w-[80%] flex justify-between items-center mb-3 -ml-2">
+                            <div class="text-left font-Outfit">
+                                <p class="text-[1.2rem] text-light text-white/40">Amount</p>
+                                <p class="text-white text-light text-[1.1rem]">1500</p>
+                            </div>
+                            <div class="text-left font-Outfit">
+                                <p class="text-[1.2rem] text-light text-white/40">Discount</p>
+                                <p class="text-white text-light text-[1.1rem]">12%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-[310px] w-[22%] rounded-2xl overflow-hidden bg-darkblue">
+                    <div class="amazon-bg-gradient w-full h-[60%] flex justify-center items-center">
+                        <img src="./assets/amazon_logo_black.png" style="transform: scale(0.85)"/>
+                    </div>
+                    <div class="w-full h-[40%] flex flex-col justify-between items-center">
+                        <div class="w-[80%] mt-3 flex justify-between items-center">
+                            <h1 class="text-white font-bold text-[1.5rem] font-Outfit">Amazon</h1>
+                            <p class="bg-transparent border-2 border-solid border-white rounded-3xl px-3 py-[0.375rem] cursor-pointer font-semibold font-Outfit text-white hover:bg-white hover:text-darkblue duration-300 transition-all ease-in text-[0.85rem]"><i class="fa-solid font-bold fa-plus mr-[0.4rem]"></i>  Buy</p>
+                        </div>
+                        <div class="w-[80%] flex justify-between items-center mb-3 -ml-2">
+                            <div class="text-left font-Outfit">
+                                <p class="text-[1.2rem] text-light text-white/40">Amount</p>
+                                <p class="text-white text-light text-[1.1rem]">1500</p>
+                            </div>
+                            <div class="text-left font-Outfit">
+                                <p class="text-[1.2rem] text-light text-white/40">Discount</p>
+                                <p class="text-white text-light text-[1.1rem]">12%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-[310px] w-[22%] rounded-2xl overflow-hidden bg-darkblue">
+                    <div class="amazon-bg-gradient w-full h-[60%] flex justify-center items-center">
+                        <img src="./assets/amazon_logo_black.png" style="transform: scale(0.85)"/>
+                    </div>
+                    <div class="w-full h-[40%] flex flex-col justify-between items-center">
+                        <div class="w-[80%] mt-3 flex justify-between items-center">
+                            <h1 class="text-white font-bold text-[1.5rem] font-Outfit">Amazon</h1>
+                            <p class="bg-transparent border-2 border-solid border-white rounded-3xl px-3 py-[0.375rem] cursor-pointer font-semibold font-Outfit text-white hover:bg-white hover:text-darkblue duration-300 transition-all ease-in text-[0.85rem]"><i class="fa-solid font-bold fa-plus mr-[0.4rem]"></i>  Buy</p>
+                        </div>
+                        <div class="w-[80%] flex justify-between items-center mb-3 -ml-2">
+                            <div class="text-left font-Outfit">
+                                <p class="text-[1.2rem] text-light text-white/40">Amount</p>
+                                <p class="text-white text-light text-[1.1rem]">1500</p>
+                            </div>
+                            <div class="text-left font-Outfit">
+                                <p class="text-[1.2rem] text-light text-white/40">Discount</p>
+                                <p class="text-white text-light text-[1.1rem]">12%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-[310px] w-[22%] rounded-2xl overflow-hidden bg-darkblue">
+                    <div class="amazon-bg-gradient w-full h-[60%] flex justify-center items-center">
+                        <img src="./assets/amazon_logo_black.png" style="transform: scale(0.85)"/>
+                    </div>
+                    <div class="w-full h-[40%] flex flex-col justify-between items-center">
+                        <div class="w-[80%] mt-3 flex justify-between items-center">
+                            <h1 class="text-white font-bold text-[1.5rem] font-Outfit">Amazon</h1>
+                            <p class="bg-transparent border-2 border-solid border-white rounded-3xl px-3 py-[0.375rem] cursor-pointer font-semibold font-Outfit text-white hover:bg-white hover:text-darkblue duration-300 transition-all ease-in text-[0.85rem]"><i class="fa-solid font-bold fa-plus mr-[0.4rem]"></i>Buy</p>
+                        </div>
+                        <div class="w-[80%] flex justify-between items-center mb-3 -ml-2">
+                            <div class="text-left font-Outfit">
+                                <p class="text-[1.2rem] text-light text-white/40">Amount</p>
+                                <p class="text-white text-light text-[1.1rem]">1500</p>
+                            </div>
+                            <div class="text-left font-Outfit">
+                                <p class="text-[1.2rem] text-light text-white/40">Discount</p>
+                                <p class="text-white text-light text-[1.1rem]">12%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!--Popular in Shopping Ends-->
+        <!--Footer Start (for PC)-->
+        <div class="hidden max-w-full w-full h-[280px] md:flex items-center justify-center footer-gradient -mb-16">
+            <div class="mt-[70px] w-[90%] h-[210px] flex justify-center">
+                <div class="flex flex-col w-[50%] font-Montserrat">
+                    <p class=" text-white self-start font-bold text-[1.2rem] mb-2">Quick Links</p>
+                    <div class="self-start flex items-center justify-center">
+                        <div class="w-[28%] h-[150px] flex flex-col mr-[80px]">
+                            <p class="underline justify-start text-white font-semibold">Home</p>
+                            <ul class="whitespace-nowrap list-none no-underline text-white">
+                                <li class="font-extralight"><a href='#'>Banner</a></li>
+                                <li class="font-extralight"><a href='#'>Trending</a></li>
+                                <li class="font-extralight"><a href='#'>How to Purchase</a></li>
+                            </ul>
+                        </div>
+                        <div class="w-[28%] h-[150px] flex flex-col mr-[80px]">
+                            <p class="underline justify-start text-white font-semibold">Shop</p>
+                            <ul class="list-none no-underline text-white">
+                                <li class="font-extralight"><a href='#'>Listings</a></li>
+                            </ul>
+                        </div>
+                        <div class="w-[28%] h-[150px] justify-start flex flex-col">
+                            <p class="underline text-white font-semibold">Newsletter</p>
+                            <ul class="list-none no-underline text-white">
+                                <li class="font-extralight"><a href='#'>About</a></li>
+                                <li class="font-extralight"><a href='#'>Sign Up</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[20%] flex flex-col text-white">
+                    <h1 class="text-[3.5rem] self-end -mb-6 cursor-pointer"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
+                    <p class="self-end font-Italiana">Haven for Gift Cards</p>
+                    <div class="flex self-end justify-center items-center gap-[6px]">
+                        <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </div>
+                        <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Footer End (for PC)-->
+        <!--Footer Start (for Phone)-->
+        <div class="md:hidden max-w-full w-full h-[500px] flex items-center justify-center footer-gradient -mb-16">
+            <div class="mt-12 w-[90%] h-[410px] flex-col justify-center">
+                <div class="flex flex-col w-full font-Montserrat">
+                    <p class=" text-white self-center font-bold text-[1.2rem] mb-2">Quick Links</p>
+                    <div class="self-start flex items-center justify-center w-full">
+                        <div class="w-[40%] h-[150px] flex flex-col mr-[80px]">
+                            <p class="underline justify-start text-white font-semibold">Home</p>
+                            <ul class="whitespace-nowrap list-none no-underline text-white">
+                                <li class="font-extralight"><a href='#'>Banner</a></li>
+                                <li class="font-extralight"><a href='#'>Trending</a></li>
+                                <li class="font-extralight"><a href='#'>How to Purchase</a></li>
+                            </ul>
+                        </div>
+                        <div class="text-right w-[40%] h-[150px] flex flex-col">
+                            <p class="underline justify-start text-white font-semibold">Shop</p>
+                            <ul class="list-none no-underline text-white">
+                                <li class="font-extralight"><a href='#'>Listings</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="text-center -mt-16 w-[100%] h-[150px] justify-center items-center flex flex-col">
+                        <p class="underline text-white font-semibold">Newsletter</p>
+                        <ul class="list-none no-underline text-white">
+                            <li class="font-extralight"><a href='#'>About</a></li>
+                            <li class="font-extralight"><a href='#'>Sign Up</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-[100%] text-center items-center justify-center flex flex-col text-white">
+                    <h1 class="text-[3.5rem] -mb-6 cursor-pointer"><span class='font-Niagara'>card</span><span class='-ml-2 font-Italiana'>Haven</span></h1>
+                    <p class=" font-Italiana">Haven for Gift Cards</p>
+                    <div class="flex justify-center items-center gap-[6px]">
+                        <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </div>
+                        <div class="flex cursor-pointer justify-center items-center border-[1.5px] border-solid border-white rounded-full h-[30px] w-[30px]">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Footer End (for PC)-->
+        <script src="shop-script.js"></script>
+    </body>
+</html>

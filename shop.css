@@ -1,0 +1,268 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+    width: 80%;
+    margin: auto;
+}
+
+.secNav{
+    display: flex;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.secNav li{
+    display: inline-block;
+    padding: 16px;
+}
+
+.secNav a{
+    text-decoration: none;
+    font-size: 22px;
+}
+.cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.buy-btn {
+  margin-bottom: 10px;
+}
+
+.banner{
+    width: 80vw;
+    margin: auto;
+    margin-bottom: 20px;
+    height: 40vh;
+    background-color: rgb(32, 83, 83);
+    border-radius: 32px;
+    
+}
+
+.mtt{
+    
+    display: inline-block;
+    width: auto; 
+}
+
+.mtt .btn{
+    border-radius: 14px;
+}
+
+
+.tables-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .table-container {
+    width: 48%; /* Each table takes ~50% of the container */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  .styled-table thead {
+    background-color: #f3f3f3;
+  }
+  
+  .styled-table th, 
+  .styled-table td {
+    padding: 15px;
+  }
+  
+  .styled-table th {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .styled-table tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .styled-table tbody tr.highlight-row {
+    background-color: #e8f4fc;
+  }
+  
+  .styled-table tbody tr:last-child {
+    border-bottom: none;
+  }
+  
+  .name-cell {
+    display: flex;
+    align-items: center;
+  }
+  
+  .name-cell .logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  
+  .styled-table tbody td {
+    color: #555;
+  }
+  
+  .styled-table tbody td:nth-child(1) {
+    font-weight: bold;
+  }
+  
+  .styled-table tbody td:nth-child(3),
+  .styled-table tbody td:nth-child(4) {
+    text-align: center;
+  }
+
+
+  /*Card Section Styling*/
+
+  .card.custom-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white;
+  }
+  
+  .card.custom-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-header img {
+    display: block;
+    width: 100%;
+    height: auto; /* Keeps the image proportions intact */
+  }
+  
+  /* Content Section */
+  .card-body {
+    padding: 20px;
+    background-color: #1b4965;
+    text-align: center;
+    
+  }
+  
+  .card-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Button Styling */
+  .btn-outline-primary {
+    color: #1b4965;
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: white;
+    color: #1b4965;
+  }
+  
+  /* "View All" Button */
+  .view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #eef5fc;
+    color: #2a475e;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .view-all-btn span {
+    margin-right: 8px;
+  }
+  
+  .view-all-btn .arrow-icon {
+    font-size: 16px;
+  }
+  
+  .view-all-btn:hover {
+    background-color: #fff200;
+    color: #1b2d42;
+  }
+  
+  .view-all-btn:hover .arrow-icon {
+    transform: translateY(2px) rotate(45deg);
+  }
+
+  .wide-cont{
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(to right, #ffefbd, rgba(255, 239, 189, 0));
+    margin-bottom: 40px;
+    border-radius: 32px;
+  }
+
+  .w-card{
+    width: 500px;
+    height: 300px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  
+  .wide-cont .image1{
+    height: 65%;
+    width: 100%;
+    background-image: url("https://xxboxnews.blob.core.windows.net/prod/sites/2/2023/06/Xbox_Logo_2022_JPG-e8f7e94c037056ae394d.jpg");
+    background-size: cover;
+    background-position: center;
+    
+  }
+
+  .wide-cont .image2{
+    height: 65%;
+    width: 100%;
+    background-image: url("https://www.themanual.com/wp-content/uploads/sites/9/2021/04/amazon-prime-video-logo-2.jpeg?fit=800%2C449&p=1");
+    background-size: cover;
+    background-position: center;
+    
+  }
+  
+
+
+  .wide-cont .content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 35%;
+    color: white;
+    background-color: #1b4965;
+  }
+
+  .content .inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+  }
+
+
