@@ -18,6 +18,7 @@ module.exports = {
         lightblue: "#6FC9FF",
         neongreen: "#CCFF5D",
         newdarkblue: "#3693cb",
+        darkerneongreen: "#CCE25D",
       }
     },
   },
