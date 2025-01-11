@@ -330,6 +330,44 @@
         .ender {
             transition: all 0.3s ease;
         }
+
+        .row-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .kfc-bg-gradient {
+            background: linear-gradient(to bottom left, white 0%, rgb(255, 0, 0) 29%, rgb(255, 46, 46) 52%, white 110%);
+            overflow: hidden;
+        }
+
+        .card-item {
+            height: 310px;
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 1000px) {
+            .card-item {
+                margin-top: 18px;
+                margin-left: 0px;
+                width: 300px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1100px) {
+            .second-card, .fourth-card {
+                margin-left: 16px;
+            }
+        }
+
     </style>
     <body class="overflow-x-hidden w-full h-full m-0 p-0 flex flex-col items-center justify-center">
         <!--Navbar Start (for PC)-->
@@ -475,18 +513,113 @@
             </div>
         </div>
         <!--Inputs Section Ends-->
-        <!--Confirm and Preview Section Starts-->
+        <!--Confirm and Move to Payment Section Starts-->
         <div class="section">
             <div class="card-80 flex-col">
                 <div class="preview-and-confirm">
-                    <h1 class="text-darkblue text-[2rem] font-Outfit font-bold starter">Preview</h1>
+                    <h1 class="text-darkblue text-[2rem] font-Outfit font-bold starter">Purchase now</h1>
                     <div class="bg-neongreen cursor-pointer rounded-3xl px-4 py-1 flex justify-center items-center text-center h-auto text-[1.5rem] text-darkblue font-Outfit font-bold ender">
                         confirm
                     </div>
                 </div>
             </div>
         </div>
-        <!--Confirm and Preview Section Ends-->
+        <!--Confirm and Move to Payment Section Ends-->
+        <!--More Like this section starts-->
+        <div class="section">
+            <div class="card-80 flex-col">
+                <div class="w-full self-start">
+                    <h1 class="text-darkblue font-bold font-Outfit text-[2rem]">Other's also buy</h1>
+                </div>
+                <div class="w-full row-item mt-4">
+                    <div class="card-item">
+                        <div class="kfc-bg-gradient w-full h-[60%] flex justify-center items-center">
+                            <img src="./assets/kfc_logo_nobg.png" style="transform: scale(1.3)"/>
+                        </div>
+                        <div class="w-full h-[40%] flex flex-col justify-between items-center bg-darkblue">
+                            <div class="w-[80%] mt-3 flex justify-between items-center">
+                                <h1 class="text-white font-bold text-[1.5rem] font-Outfit">Amazon</h1>
+                                <p class="bg-transparent border-2 border-solid border-white rounded-3xl px-3 py-[0.375rem] cursor-pointer font-semibold font-Outfit text-white hover:bg-white hover:text-darkblue duration-300 transition-all ease-in text-[0.85rem]"><i class="fa-solid font-bold fa-plus mr-[0.4rem]"></i>  Buy</p>
+                            </div>
+                            <div class="w-[80%] flex justify-between items-center mb-3 -ml-2">
+                                <div class="text-left font-Outfit">
+                                    <p class="text-[1.2rem] text-light text-white/40">Amount</p>
+                                    <p class="text-white text-light text-[1.1rem]">1500</p>
+                                </div>
+                                <div class="text-left font-Outfit">
+                                    <p class="text-[1.2rem] text-light text-white/40">Discount</p>
+                                    <p class="text-white text-light text-[1.1rem]">12%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="second-card card-item ml-8">
+                        <div class="kfc-bg-gradient w-full h-[60%] flex justify-center items-center">
+                            <img src="./assets/kfc_logo_nobg.png" style="transform: scale(1.3)"/>
+                        </div>
+                        <div class="w-full h-[40%] flex flex-col justify-between items-center bg-darkblue">
+                            <div class="w-[80%] mt-3 flex justify-between items-center">
+                                <h1 class="text-white font-bold text-[1.5rem] font-Outfit">Amazon</h1>
+                                <p class="bg-transparent border-2 border-solid border-white rounded-3xl px-3 py-[0.375rem] cursor-pointer font-semibold font-Outfit text-white hover:bg-white hover:text-darkblue duration-300 transition-all ease-in text-[0.85rem]"><i class="fa-solid font-bold fa-plus mr-[0.4rem]"></i>  Buy</p>
+                            </div>
+                            <div class="w-[80%] flex justify-between items-center mb-3 -ml-2">
+                                <div class="text-left font-Outfit">
+                                    <p class="text-[1.2rem] text-light text-white/40">Amount</p>
+                                    <p class="text-white text-light text-[1.1rem]">1500</p>
+                                </div>
+                                <div class="text-left font-Outfit">
+                                    <p class="text-[1.2rem] text-light text-white/40">Discount</p>
+                                    <p class="text-white text-light text-[1.1rem]">12%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-item ml-8">
+                        <div class="kfc-bg-gradient w-full h-[60%] flex justify-center items-center">
+                            <img src="./assets/kfc_logo_nobg.png" style="transform: scale(1.3)"/>
+                        </div>
+                        <div class="w-full h-[40%] flex flex-col justify-between items-center bg-darkblue">
+                            <div class="w-[80%] mt-3 flex justify-between items-center">
+                                <h1 class="text-white font-bold text-[1.5rem] font-Outfit">Amazon</h1>
+                                <p class="bg-transparent border-2 border-solid border-white rounded-3xl px-3 py-[0.375rem] cursor-pointer font-semibold font-Outfit text-white hover:bg-white hover:text-darkblue duration-300 transition-all ease-in text-[0.85rem]"><i class="fa-solid font-bold fa-plus mr-[0.4rem]"></i>  Buy</p>
+                            </div>
+                            <div class="w-[80%] flex justify-between items-center mb-3 -ml-2">
+                                <div class="text-left font-Outfit">
+                                    <p class="text-[1.2rem] text-light text-white/40">Amount</p>
+                                    <p class="text-white text-light text-[1.1rem]">1500</p>
+                                </div>
+                                <div class="text-left font-Outfit">
+                                    <p class="text-[1.2rem] text-light text-white/40">Discount</p>
+                                    <p class="text-white text-light text-[1.1rem]">12%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fourth-card card-item ml-8">
+                        <div class="kfc-bg-gradient w-full h-[60%] flex justify-center items-center">
+                            <img src="./assets/kfc_logo_nobg.png" style="transform: scale(1.3)"/>
+                        </div>
+                        <div class="w-full h-[40%] flex flex-col justify-between items-center bg-darkblue">
+                            <div class="w-[80%] mt-3 flex justify-between items-center">
+                                <h1 class="text-white font-bold text-[1.5rem] font-Outfit">Amazon</h1>
+                                <p class="bg-transparent border-2 border-solid border-white rounded-3xl px-3 py-[0.375rem] cursor-pointer font-semibold font-Outfit text-white hover:bg-white hover:text-darkblue duration-300 transition-all ease-in text-[0.85rem]"><i class="fa-solid font-bold fa-plus mr-[0.4rem]"></i>  Buy</p>
+                            </div>
+                            <div class="w-[80%] flex justify-between items-center mb-3 -ml-2">
+                                <div class="text-left font-Outfit">
+                                    <p class="text-[1.2rem] text-light text-white/40">Amount</p>
+                                    <p class="text-white text-light text-[1.1rem]">1500</p>
+                                </div>
+                                <div class="text-left font-Outfit">
+                                    <p class="text-[1.2rem] text-light text-white/40">Discount</p>
+                                    <p class="text-white text-light text-[1.1rem]">12%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--More Like this section ends-->
         <!--Footer Start (for PC)-->
         <div class="hidden max-w-full w-full h-[280px] lg:flex items-center justify-center footer-gradient mt-[50px] -mb-12">
             <div class="mt-[70px] w-[90%] h-[210px] flex justify-center">
